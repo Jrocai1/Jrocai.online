@@ -38,19 +38,15 @@ In Supabase Dashboard → Authentication → URL Configuration:
 
 ## Required domain activation
 
-Cloudflare Pages is connected to the repository and its production deployment succeeds. The Pages custom domains `jrocai.online` and `www.jrocai.online` are still pending because the Cloudflare zone reports a nameserver mismatch.
-
-Cloudflare currently expects:
+Cloudflare Pages is connected to the repository and its production deployment succeeds. The Cloudflare zone is now **active** and its assigned nameservers are:
 - `alfred.ns.cloudflare.com`
 - `gail.ns.cloudflare.com`
 
-The domain currently resolves to different nameservers (`emma.ns.cloudflare.com` and `kipp.ns.cloudflare.com`). At the registrar (Namecheap), replace the domain's nameservers with the exact pair shown on the Cloudflare zone overview. Do not change or delete MX, SPF, DKIM, or other email records. After delegation updates, recheck both Pages custom domains and HTTPS certificate status in Cloudflare.
+Cloudflare DNS records are configured:
+- `jrocai.online` → CNAME `jrocai-online.pages.dev`
+- `www.jrocai.online` → CNAME `jrocai-online.pages.dev`
 
-Cloudflare DNS records in the pending zone have been mapped as CNAMEs:
-- `jrocai.online` → `jrocai-online.pages.dev`
-- `www.jrocai.online` → `jrocai-online.pages.dev`
-
-These records do not become authoritative until the registrar delegates the domain to Cloudflare's assigned nameservers.
+The Pages custom domain `jrocai.online` has DNS verification status active, but HTTP validation and certificate issuance are still pending. `www.jrocai.online` verification/validation is still pending. Recheck Pages custom-domain status and HTTPS after DNS propagation. Do not change or delete MX, SPF, DKIM, or other email records.
 
 ## Manual acceptance checklist
 
@@ -75,8 +71,8 @@ Run these checks after domain and Supabase Auth URL configuration is complete:
 - [x] Navigation simplified; duplicate login link removed.
 - [x] Password-reset page now supports password update after recovery callback.
 - [x] Pages DNS records set to the Pages project target in the pending Cloudflare zone.
-- [ ] Registrar nameserver delegation updated.
-- [ ] Custom domain verification and HTTPS certificate active.
+- [x] Cloudflare zone is active with its assigned nameservers.
+- [ ] Custom-domain HTTP validation and HTTPS certificate active.
 - [ ] Supabase Site URL / Redirect URL allow-list confirmed in dashboard.
 - [ ] Real signup + confirmation email tested with a mailbox.
 - [ ] Real password-reset email and password update tested with a mailbox.
