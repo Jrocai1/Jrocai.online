@@ -47,8 +47,14 @@ Deno.serve(async (req: Request) => {
   if (req.method === "GET" && route === "status") {
     const paymentsConfigured = Boolean(Deno.env.get("STRIPE_SECRET_KEY") && Deno.env.get("STRIPE_WEBHOOK_SECRET"));
     const checkoutFlag = Deno.env.get("SAAS_CHECKOUT_ENABLED") === "true";
-    const { count } = await admin.from("saas_plans").select("id", { count: "exact", head: true }).eq("active", true);
-    return json({ payments_configured: paymentsConfigured, active_plan_count: count || 0, checkout_enabled: paymentsConfigured && checkoutFlag && (count || 0) > 0 }, 200, origin);
+    const { data: candidatePlans } = await admin.from("saas_plans")
+      .select("id,provider_price_id,billing_interval,saas_products!inner(visibility,status)").eq("active", true);
+    const count = (candidatePlans || []).filter((p: any) => {
+      const product = Array.isArray(p.saas_products) ? p.saas_products[0] : p.saas_products;
+      return Boolean(p.provider_price_id) && ["month", "year"].includes(p.billing_interval)
+        && product?.visibility === "public" && ["preview", "active"].includes(product?.status);
+    }).length;
+    return json({ payments_configured: paymentsConfigured, active_plan_count: count, checkout_enabled: paymentsConfigured && checkoutFlag && count > 0 }, 200, origin);
   }
   if (req.method === "GET" && route === "catalog") {
     const { data: products, error } = await admin.from("saas_products")
@@ -80,7 +86,7 @@ Deno.serve(async (req: Request) => {
     const user = await authenticatedUser(req);
     if (!user) return json({ error: "unauthorized" }, 401, origin);
     const stripeSecret = Deno.env.get("STRIPE_SECRET_KEY");
-    if (!stripeSecret || Deno.env.get("SAAS_CHECKOUT_ENABLED") !== "true") return json({ error: "checkout_disabled", message: "Checkout remains disabled until Stripe secrets are configured and the owner explicitly enables checkout after end-to-end tests." }, 503, origin);
+    if (!stripeSecret || !Deno.env.get("STRIPE_WEBHOOK_SECRET") || Deno.env.get("SAAS_CHECKOUT_ENABLED") !== "true") return json({ error: "checkout_disabled", message: "Checkout remains disabled until Stripe secrets are configured and the owner explicitly enables checkout after end-to-end tests." }, 503, origin);
     let body: { plan_id?: string };
     try { body = await req.json(); } catch { return json({ error: "invalid_json" }, 400, origin); }
     if (!body.plan_id || typeof body.plan_id !== "string") return json({ error: "plan_id_required" }, 400, origin);
