@@ -34,4 +34,4 @@ Source package is prepared for static hosting. A live Cloudflare deployment, DNS
 - SaaS / marketplace catalog: `/marketplace/` — catalog prototype only; checkout and billing are not enabled.
 - Private module studio: `/workspace/studio/` — browser-local drafts only until secure repository integration is implemented.
 
-Cloudflare Pages project `jrocai-online` is configured to deploy from `main`. When changing source-control deployment settings, verify the newest deployment's stages and ensure the commit was not skipped by path configuration.
+Cloudflare Pages project `jrocai-online` is configured to deploy from `main`, with broad path include patterns to ensure root and nested module changes are observed. Confirm every push by checking that the latest deployment reaches successful build and deploy stages; a skipped deployment is not a release.
