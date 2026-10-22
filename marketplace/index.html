@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b14"><title>J-ROC AI | SaaS & Marketplace</title>
 <style>
 :root{color-scheme:dark;--bg:#080b14;--panel:#101827;--line:#26334b;--text:#f3f6ff;--muted:#a4b1c8;--cyan:#54e2ff;--blue:#4da3ff;--green:#75e0b0;--amber:#f5c56b}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#173665 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 Inter,"Segoe UI",system-ui,sans-serif}a{color:inherit;text-decoration:none}.wrap{max-width:1440px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px}.brand{font-weight:900;font-size:19px}.brand b{color:var(--cyan)}.muted{color:var(--muted)}h1{font-size:clamp(32px,5vw,50px);letter-spacing:-.045em;line-height:1.05;margin:30px 0 12px}.intro{max-width:850px;color:var(--muted)}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #397bc4;background:linear-gradient(135deg,#2674d9,#164b9a);color:#fff;border-radius:9px;padding:10px 13px;font-weight:750;cursor:pointer;display:inline-flex}.btn.secondary{background:#111b2d;border-color:var(--line)}.label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:850}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:25px 0}.card{border:1px solid var(--line);background:linear-gradient(145deg,#111b2d,#0c1220);border-radius:15px;padding:20px}.card h2{margin:8px 0;font-size:19px}.card p,.card li{font-size:13px;color:var(--muted)}.price{font-size:30px;font-weight:900;letter-spacing:-.04em;margin:12px 0}.price small{font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0}.pill{display:inline-block;border:1px solid #294365;border-radius:99px;padding:4px 9px;color:var(--cyan);font-size:10px}.section{margin-top:38px}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.product{padding:16px;border:1px solid var(--line);border-radius:12px;background:#0c1423}.product h3{font-size:15px;margin:8px 0}.product p{font-size:12px;color:var(--muted);min-height:54px}.notice{border:1px solid #594a2a;background:#251f13;border-radius:12px;padding:15px;color:#dbc99e;font-size:13px;margin:18px 0}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.step{border:1px solid var(--line);border-radius:12px;padding:15px}.step strong{display:block;margin-bottom:6px}.step span{font-size:12px;color:var(--muted)}.foot{border-top:1px solid var(--line);padding-top:20px;margin-top:30px;color:var(--muted);font-size:12px}@media(max-width:1000px){.grid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.products,.steps{grid-template-columns:1fr}.wrap{padding:18px}}
-</style></head><body><div class="wrap"><header class="top"><a class="brand" href="/">J-ROC <b>AI</b> <span class="muted">/ SaaS Marketplace</span></a><div class="actions"><a class="btn secondary" href="/previews/">Demo gallery</a><a class="btn" href="/login/">Workspace login</a></div></header>
+</style></head><body><div class="wrap"><header class="top"><a class="brand" href="/">J-ROC <b>AI</b> <span class="muted">/ SaaS Marketplace</span></a><div class="actions"><a class="btn secondary" href="/previews/">Demo gallery</a><a class="btn secondary" href="/account/">Customer account</a><a class="btn" href="/login/">Owner workspace</a></div></header>
 <div class="label" style="margin-top:26px">Product catalog · SaaS foundation</div><h1>One platform. Modular products.</h1><p class="intro">A future-ready catalog for J-ROC AI software, add-on modules, and subscription offerings. The catalog structure and product previews are being established first. Paid checkout, customer subscriptions, license enforcement, and billing webhooks are not connected yet.</p>
 <div class="notice"><strong>Current stage: internal catalog prototype.</strong> J-ROC AI remains private/internal until you choose to publish products. No prices shown here are live offers, and no checkout or payment is active.</div>
 <section class="section"><div class="label">Subscription architecture</div><div class="grid">
@@ -27,5 +27,46 @@ const products=[
 ["JAIB","J-ROC AI Brain","Agent planning, validation, and orchestration.","Internal development"],
 ["JES","Entertainment Studio","Creative project and production workflow.","Planned"],
 ["JPS","Shared Platform Services","Auth, permissions, logs, and integration contracts.","Core services"]];
-document.querySelector("#products").innerHTML=products.map(p=>'<article class="product"><span class="pill">'+p[0]+'</span><h3>'+p[1]+'</h3><p>'+p[2]+'</p><div class="muted" style="font-size:11px;margin-bottom:12px">Status: '+p[3]+'</div><a class="btn secondary" href="/previews/">View demo gallery</a></article>').join("");
+const productsRoot=document.querySelector("#products");
+const apiBase="https://dfgiqvjepytgvjyxszqe.supabase.co/functions/v1/saas-api";
+const publicKey="sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
+const esc=s=>String(s??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+function renderFallback(){productsRoot.innerHTML=products.map(p=>'<article class="product"><span class="pill">'+esc(p[0])+'</span><h3>'+esc(p[1])+'</h3><p>'+esc(p[2])+'</p><div class="muted" style="font-size:11px;margin-bottom:12px">Status: '+esc(p[3])+'</div><a class="btn secondary" href="/previews/">View demo gallery</a></article>').join("")}
+async function loadLiveCatalog(){
+  try{
+    const responses=await Promise.all([fetch(apiBase+"/status",{headers:{apikey:publicKey}}),fetch(apiBase+"/catalog",{headers:{apikey:publicKey}})]);
+    if(!responses[0].ok||!responses[1].ok)throw new Error("Catalog API unavailable");
+    const status=await responses[0].json(),catalog=await responses[1].json();
+    const notice=document.querySelector(".notice");
+    notice.innerHTML=status.checkout_enabled
+      ? "<strong>Catalog connected.</strong> Checkout is enabled only for published plans. Complete end-to-end payment tests before advertising paid access."
+      : "<strong>Internal catalog prototype.</strong> Catalog API is connected. Payments are disabled until Stripe secrets, published plans, webhook configuration, and end-to-end tests are complete.";
+    if(!catalog.products||!catalog.products.length){renderFallback();return}
+    productsRoot.innerHTML=catalog.products.map(p=>{
+      const plans=(p.plans||[]).map(plan=>{
+        const amount=(Number(plan.price_cents)/100).toLocaleString("en-US",{style:"currency",currency:String(plan.currency||"usd").toUpperCase()});
+        const interval=plan.billing_interval==="month"?"/month":plan.billing_interval==="year"?"/year":"";
+        const action=status.checkout_enabled?'<button class="btn" data-checkout="'+esc(plan.id)+'">Subscribe '+amount+esc(interval)+'</button>':'<button class="btn secondary" disabled>Checkout not enabled</button>';
+        return '<div style="margin-top:10px"><strong>'+esc(plan.name)+' · '+amount+esc(interval)+'</strong><div style="margin-top:8px">'+action+'</div></div>';
+      }).join("");
+      return '<article class="product"><span class="pill">'+esc(p.slug)+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.description)+'</p>'+(plans||'<div class="muted" style="font-size:12px">No published subscription plans.</div>')+'</article>';
+    }).join("");
+    document.querySelectorAll("[data-checkout]").forEach(button=>button.onclick=async()=>{
+      const client=window.supabase.createClient("https://dfgiqvjepytgvjyxszqe.supabase.co",publicKey);
+      const {data:{session}}=await client.auth.getSession();
+      if(!session){location.href="/account/";return}
+      button.disabled=true;button.textContent="Opening secure checkout…";
+      try{
+        const res=await fetch(apiBase+"/checkout",{method:"POST",headers:{apikey:publicKey,Authorization:"Bearer "+session.access_token,"Content-Type":"application/json"},body:JSON.stringify({plan_id:button.dataset.checkout})});
+        const d=await res.json();if(!res.ok)throw new Error(d.message||d.error||"Checkout could not start");
+        location.href=d.checkout_url;
+      }catch(e){alert(e.message);button.disabled=false;button.textContent="Try checkout again"}
+    });
+  }catch(e){
+    document.querySelector(".notice").innerHTML="<strong>Catalog fallback mode.</strong> The static catalog is shown because the live API could not be reached. No checkout is available.";
+    renderFallback();
+  }
+}
+renderFallback();
+loadLiveCatalog();
 </script></body></html>
