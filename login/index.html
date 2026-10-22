@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>Sign in | J-ROC AI</title>
+<style>
+:root{color-scheme:dark;--bg:#080b14;--panel:#101827;--line:#26334b;--text:#f3f6ff;--muted:#a4b1c8;--blue:#4da3ff;--cyan:#54e2ff;--red:#ff9aa8;--green:#75e0b0}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 70% 0,#173665 0,transparent 48%),var(--bg);color:var(--text);font:16px/1.5 Inter,"Segoe UI",system-ui,sans-serif}.card{width:min(460px,100%);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,5vw,36px);background:linear-gradient(150deg,#121c2e,#0b1120);box-shadow:0 24px 80px #0005}.brand{font-size:19px;font-weight:900;letter-spacing:.05em}.brand b{color:var(--cyan)}.eyebrow{margin-top:28px;color:var(--cyan);font-size:11px;font-weight:850;letter-spacing:.17em;text-transform:uppercase}h1{font-size:34px;line-height:1.1;letter-spacing:-.04em;margin:8px 0 10px}p{color:var(--muted);font-size:14px}.field{display:grid;gap:7px;margin:17px 0}.field label{font-size:13px;color:#dce5f5}.field input{width:100%;border:1px solid #33435e;background:#080f1c;border-radius:10px;padding:13px;color:var(--text);font:inherit;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4da3ff22}.btn{width:100%;border:1px solid #397bc4;background:linear-gradient(135deg,#2674d9,#164b9a);color:white;border-radius:10px;padding:12px;font-weight:800;font:inherit;cursor:pointer}.btn:disabled{opacity:.55;cursor:wait}.link{border:0;background:none;color:var(--cyan);padding:10px 0;cursor:pointer;font:inherit;font-size:13px}.message{display:none;margin-top:15px;padding:12px;border:1px solid #33435e;border-radius:10px;font-size:13px;overflow-wrap:anywhere}.message.show{display:block}.message.error{color:var(--red);border-color:#773d4b;background:#2a151d}.message.ok{color:var(--green);border-color:#246b56;background:#103126}.foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:#8291aa}.foot a{color:var(--cyan);text-decoration:none}.small{font-size:12px}.hide{display:none!important}
+</style>
+</head>
+<body>
+<main class="card">
+<a class="brand" href="/" style="color:inherit;text-decoration:none">J-ROC <b>AI</b></a>
+<div class="eyebrow">Private platform access</div>
+<h1 id="title">Sign in to your workspace</h1>
+<p id="subtitle">Use the email address and password assigned to your J-ROC AI account. Access is restricted to approved workspace members.</p>
+<form id="loginForm">
+<div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" required maxlength="254" placeholder="you@example.com"></div>
+<div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Your password"></div>
+<button class="btn" id="submit" type="submit">Sign in securely</button>
+</form>
+<button class="link" id="forgot" type="button">Forgot password?</button>
+<div id="message" class="message" role="status" aria-live="polite"></div>
+<div class="foot">Protected by Supabase Auth · <a href="/">Back to J-ROC AI website</a><br><span class="small">New accounts are provisioned by the workspace owner. There is no public sign-up.</span></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://dfgiqvjepytgvjyxszqe.supabase.co";
+const SUPABASE_KEY = "sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+const form=document.querySelector("#loginForm"),emailEl=document.querySelector("#email"),passEl=document.querySelector("#password"),submit=document.querySelector("#submit"),msg=document.querySelector("#message"),forgot=document.querySelector("#forgot");
+function show(text,type="ok"){msg.textContent=text;msg.className="message show "+type}
+function busy(on){submit.disabled=on;submit.textContent=on?"Please wait…":"Sign in securely"}
+async function allowedWorkspace(session){
+  if(!session?.user) return false;
+  const {data,error}=await client.from("workspace_members").select("role").eq("user_id",session.user.id).maybeSingle();
+  if(error) throw error;
+  return !!data;
+}
+form.addEventListener("submit",async e=>{
+ e.preventDefault();busy(true);msg.className="message";
+ try{
+  const {data,error}=await client.auth.signInWithPassword({email:emailEl.value.trim(),password:passEl.value});
+  if(error) throw error;
+  if(!await allowedWorkspace(data.session)){await client.auth.signOut();throw new Error("This account is not yet approved for the private workspace. Contact the workspace owner.");}
+  location.replace("/workspace/");
+ }catch(err){show(err.message||"Unable to sign in. Check your credentials and try again.","error");busy(false)}
+});
+forgot.addEventListener("click",async()=>{
+ const email=emailEl.value.trim();
+ if(!email){show("Enter your account email above, then choose Forgot password again.","error");emailEl.focus();return}
+ forgot.disabled=true;
+ try{
+  const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+"/login/"});
+  if(error)throw error;
+  show("If an account exists for that address, a password-reset email will be sent. Check your inbox and spam folder.");
+ }catch(err){show(err.message||"Could not request a password reset.","error")}
+ finally{forgot.disabled=false}
+});
+(async()=>{
+ try{
+  const {data:{session}}=await client.auth.getSession();
+  if(session && await allowedWorkspace(session)) location.replace("/workspace/");
+ }catch(_){}
+ if(new URLSearchParams(location.search).has("reset")) show("Use the password-reset link from your email to continue.");
+})();
+</script>
+</body></html>
