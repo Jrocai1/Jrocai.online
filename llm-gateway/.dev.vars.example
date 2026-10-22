@@ -1,0 +1,6 @@
+# Copy these values into Cloudflare Worker Variables / Secrets.
+# Do not commit real provider API keys.
+SUPABASE_ANON_KEY=YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY
+PROVIDERS_JSON={"openrouter":{"base_url":"https://openrouter.ai/api/v1","api_key_env":"OPENROUTER_API_KEY"}}
+ALLOWED_MODELS_JSON=[{"id":"openrouter:YOUR_APPROVED_MODEL_ID","provider":"openrouter","model":"YOUR_APPROVED_MODEL_ID"}]
+# Store OPENROUTER_API_KEY as a Cloudflare Worker secret, not as a plain variable.
