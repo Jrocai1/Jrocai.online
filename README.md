@@ -35,3 +35,14 @@ Source package is prepared for static hosting. A live Cloudflare deployment, DNS
 - Private module studio: `/workspace/studio/` — browser-local drafts only until secure repository integration is implemented.
 
 Cloudflare Pages project `jrocai-online` is configured to deploy from `main`, with broad path include patterns to ensure root and nested module changes are observed. Confirm every push by checking that the latest deployment reaches successful build and deploy stages; a skipped deployment is not a release.
+
+
+## SaaS marketplace backend
+- Customer account portal: `/account/`
+- Catalog and checkout API: Supabase Edge Function `saas-api`
+- Signed Stripe webhook handler: Supabase Edge Function `saas-stripe-webhook`
+- Schema and private product registry: `supabase/migrations/20261022000000_saas_marketplace_foundation.sql`
+- Source-controlled Edge Function code: `supabase/functions/`
+- Launch checklist and required secrets: [docs/SAAS_MARKETPLACE_OPERATIONS.md](docs/SAAS_MARKETPLACE_OPERATIONS.md)
+
+Checkout is intentionally gated off. Products are seeded as private drafts; no active plans or live prices are configured. Do not enable payment collection until Stripe test-mode checkout, signed webhook processing, subscription state, entitlement enforcement, license issuance/revocation, access isolation, cancellation, and refund scenarios pass.
