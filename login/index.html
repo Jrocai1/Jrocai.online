@@ -61,7 +61,7 @@ createAccount.addEventListener("click",async()=>{
  }catch(err){show(err.message||"Could not create the account request.","error")}
  finally{createAccount.disabled=false;busy(false)}
 });
-\nforgot.addEventListener("click",async()=>{
+forgot.addEventListener("click",async()=>{
  const email=emailEl.value.trim();
  if(!email){show("Enter your account email above, then choose Forgot password again.","error");emailEl.focus();return}
  forgot.disabled=true;
