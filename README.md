@@ -49,3 +49,25 @@ Checkout is intentionally gated off. Products are seeded as private drafts; no a
 
 ## Website and account foundation verification
 See [docs/ACCOUNT_FOUNDATION_TEST_PLAN.md](docs/ACCOUNT_FOUNDATION_TEST_PLAN.md) for current deployment/domain findings, Supabase Auth redirect configuration, owner membership provisioning, and signup/email/password-reset/protected-route acceptance tests. The custom domain remains pending until the registrar nameservers match Cloudflare's assigned nameservers; real email flows still require mailbox testing.
+
+
+## Cloudflare infrastructure modules
+
+The homepage now includes an infrastructure roadmap for:
+- **J-ROC AI Cloud:** Workers/serverless APIs, D1/KV/R2 where suitable, and background processing.
+- **J-ROC AI Network:** DNS/domain visibility, private application access, and API protection.
+- **AI Gateway & Model Routing:** server-side provider integrations, approved-model allow-lists, and usage monitoring.
+- **Operations modules:** read-only resource inventory, health/status reporting, security checks, and deployment visibility.
+
+These are architecture targets, not claims that each service is already provisioned or connected. Inspect existing Cloudflare resources first, reuse Supabase where appropriate, and verify every integration before displaying it as operational.
+
+## Safe rollout sequence
+
+1. Confirm the production deployment and domain status.
+2. Inventory Cloudflare resources and plan limits.
+3. Implement read-only, authenticated status endpoints.
+4. Connect verified data to Chairman Office.
+5. Add scoped operations with audit logs and owner approval gates.
+6. Test access control, secrets handling, rate limits, error handling, and rollback.
+
+Do not expose Cloudflare API tokens or Supabase service-role credentials in browser code. Do not enable paid resources or make destructive production changes without owner approval.
