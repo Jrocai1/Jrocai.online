@@ -54,7 +54,7 @@ createAccount.addEventListener("click",async()=>{
  if(password.length<8){show("Use a password with at least 8 characters.","error");return}
  createAccount.disabled=true;busy(true);
  try{
-  const {data,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:location.origin+"/login/"}});
+  const {data,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:location.origin+"/login/?confirmed=1"}});
   if(error)throw error;
   if(data.session){await client.auth.signOut();}
   show("Account request submitted. Check your email for a verification link if requested. The private workspace remains locked until the owner approves this email address.");
@@ -66,7 +66,7 @@ forgot.addEventListener("click",async()=>{
  if(!email){show("Enter your account email above, then choose Forgot password again.","error");emailEl.focus();return}
  forgot.disabled=true;
  try{
-  const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+"/login/"});
+  const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+"/account/?reset=1"});
   if(error)throw error;
   show("If an account exists for that address, a password-reset email will be sent. Check your inbox and spam folder.");
  }catch(err){show(err.message||"Could not request a password reset.","error")}
@@ -77,7 +77,9 @@ forgot.addEventListener("click",async()=>{
   const {data:{session}}=await client.auth.getSession();
   if(session && await allowedWorkspace(session)) location.replace("/workspace/");
  }catch(_){}
- if(new URLSearchParams(location.search).has("reset")) show("Use the password-reset link from your email to continue.");
+ if(new URLSearchParams(location.search).has("confirmed")) show("Email confirmation received. You may sign in, but private workspace access still requires owner approval.");
+ if(new URLSearchParams(location.search).has("denied")) show("This account is not approved for the private workspace. Sign in with an approved member account or contact the owner.", "error");
+ if(new URLSearchParams(location.search).has("reset")) show("Open the password-reset email link to choose a new password on the account recovery page.");
 })();
 </script>
 </body></html>
