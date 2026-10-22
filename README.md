@@ -46,3 +46,6 @@ Cloudflare Pages project `jrocai-online` is configured to deploy from `main`, wi
 - Launch checklist and required secrets: [docs/SAAS_MARKETPLACE_OPERATIONS.md](docs/SAAS_MARKETPLACE_OPERATIONS.md)
 
 Checkout is intentionally gated off. Products are seeded as private drafts; no active plans or live prices are configured. Do not enable payment collection until Stripe test-mode checkout, signed webhook processing, subscription state, entitlement enforcement, license issuance/revocation, access isolation, cancellation, and refund scenarios pass.
+
+## Website and account foundation verification
+See [docs/ACCOUNT_FOUNDATION_TEST_PLAN.md](docs/ACCOUNT_FOUNDATION_TEST_PLAN.md) for current deployment/domain findings, Supabase Auth redirect configuration, owner membership provisioning, and signup/email/password-reset/protected-route acceptance tests. The custom domain remains pending until the registrar nameservers match Cloudflare's assigned nameservers; real email flows still require mailbox testing.
