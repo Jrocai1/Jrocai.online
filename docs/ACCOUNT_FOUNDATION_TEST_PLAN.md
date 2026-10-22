@@ -46,7 +46,7 @@ Cloudflare DNS records are configured:
 - `jrocai.online` → CNAME `jrocai-online.pages.dev`
 - `www.jrocai.online` → CNAME `jrocai-online.pages.dev`
 
-The Pages custom domain `jrocai.online` has DNS verification status active, but HTTP validation and certificate issuance are still pending. `www.jrocai.online` verification/validation is still pending. Recheck Pages custom-domain status and HTTPS after DNS propagation. Do not change or delete MX, SPF, DKIM, or other email records.
+Both Pages custom domains, `jrocai.online` and `www.jrocai.online`, now report `active` for verification and HTTP validation in the Cloudflare API. Confirm browser HTTPS and actual page loads from a normal network as the final external smoke test. Do not change or delete MX, SPF, DKIM, or other email records.
 
 ## Manual acceptance checklist
 
@@ -72,7 +72,7 @@ Run these checks after domain and Supabase Auth URL configuration is complete:
 - [x] Password-reset page now supports password update after recovery callback.
 - [x] Pages DNS records set to the Pages project target in the pending Cloudflare zone.
 - [x] Cloudflare zone is active with its assigned nameservers.
-- [ ] Custom-domain HTTP validation and HTTPS certificate active.
+- [x] Cloudflare reports both custom domains active for verification and HTTP validation.\n- [ ] Browser-level HTTPS/page-load smoke test completed from a normal network.
 - [ ] Supabase Site URL / Redirect URL allow-list confirmed in dashboard.
 - [ ] Real signup + confirmation email tested with a mailbox.
 - [ ] Real password-reset email and password update tested with a mailbox.
