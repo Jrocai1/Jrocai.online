@@ -38,6 +38,12 @@ const products=[
 ["music-studio","Philly’s Own Elite Music Studio","Creative Systems","MS","Service","Music production and creative studio services.","service",""],
 ["business-growth","J-ROC Growth Systems","Business Solutions","GS","Service","Business automation, lead generation, chatbots, sales systems, and growth consulting.","service",""],
 ["api","J-ROC AI API","Developer Tools","API","Repository Available","Dedicated API project for future integrations and platform services.","development","https://github.com/Jrocai1/Jrocai-api"],
+["jroc-cloud","J-ROC AI Cloud","Cloud Infrastructure","CLD","Roadmap","Cloudflare Workers, APIs, storage, background jobs, and service orchestration where supported by the account plan.","planned","https://developers.cloudflare.com/"],
+["jroc-network","J-ROC AI Network","Network & Security","NET","Roadmap","Domain and DNS visibility, private access patterns, API protection, and service health reporting.","planned","https://developers.cloudflare.com/cloudflare-one/"],
+["ai-gateway","AI Gateway & Model Routing","AI & Models","GW","Roadmap","Server-side AI provider routing, owner-approved model allow-lists, usage monitoring, and key protection.","planned","https://developers.cloudflare.com/ai-gateway/"],
+["cloud-ops","Cloud Operations","Cloud Infrastructure","OPS","Roadmap","Read-only infrastructure inventory, deployment history, health checks, and safe rollback visibility.","planned","https://dash.cloudflare.com/"],
+["security-center","J-ROC AI Security Center","Network & Security","SEC","Roadmap","Access reviews, API protection checks, rate limiting, and security audit visibility.","planned","https://developers.cloudflare.com/"],
+["data-storage","Data & Storage Services","Cloud Infrastructure","DATA","Roadmap","A managed view of existing Supabase and Cloudflare data resources, with no unnecessary duplication.","planned","https://supabase.com/dashboard/"],
 ["website","Jrocai.online","Platform","WEB","Website","Official public directory for current and future J-ROC AI products.","live","https://github.com/Jrocai1/Jrocai.online"]
 ].map(([id,name,category,icon,status,description,availability,href])=>({id,name,category,icon,status,description,availability,href}));
 let selected="All systems";const cats=["All systems",...new Set(products.map(p=>p.category))],filters=document.querySelector("#filters"),grid=document.querySelector("#grid"),search=document.querySelector("#search");
