@@ -27,3 +27,11 @@ This is a public catalog, not the private Chairman Office dashboard. Never commi
 
 ## Verification
 Source package is prepared for static hosting. A live Cloudflare deployment, DNS, and HTTPS must be checked in the Cloudflare account after upload.
+
+
+## Module demos and marketplace
+- Demo gallery: `/previews/` — demo links are explicitly labeled and may point to module dashboards until a runnable demo is available.
+- SaaS / marketplace catalog: `/marketplace/` — catalog prototype only; checkout and billing are not enabled.
+- Private module studio: `/workspace/studio/` — browser-local drafts only until secure repository integration is implemented.
+
+Cloudflare Pages project `jrocai-online` is configured to deploy from `main`. When changing source-control deployment settings, verify the newest deployment's stages and ensure the commit was not skipped by path configuration.
