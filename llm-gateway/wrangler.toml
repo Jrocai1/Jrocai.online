@@ -1,0 +1,10 @@
+name = "jroc-ai-llm-gateway"
+main = "src/index.js"
+compatibility_date = "2026-10-22"
+workers_dev = true
+
+[vars]
+SUPABASE_URL = "https://dfgiqvjepytgvjyxszqe.supabase.co"
+ALLOWED_ORIGINS = "https://jrocai.online,https://www.jrocai.online"
+# Configure PROVIDERS_JSON and ALLOWED_MODELS_JSON as Worker variables.
+# Configure provider API keys as Worker secrets, never in this file.
