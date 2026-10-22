@@ -20,7 +20,7 @@
 <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Your password"></div>
 <button class="btn" id="submit" type="submit">Sign in securely</button>
 </form>
-<button class="link" id="createAccount" type="button">Create account (approval required)</button><br><button class="link" id="forgot" type="button">Forgot password?</button>
+<button class="link" id="forgot" type="button">Forgot password?</button>
 <div id="message" class="message" role="status" aria-live="polite"></div>
 <div class="foot">Protected by Supabase Auth · <a href="/">Back to J-ROC AI website</a><br><span class="small">New accounts are provisioned by the workspace owner. There is no public sign-up.</span></div>
 </main>
@@ -29,7 +29,7 @@
 const SUPABASE_URL = "https://dfgiqvjepytgvjyxszqe.supabase.co";
 const SUPABASE_KEY = "sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
 const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
-const form=document.querySelector("#loginForm"),emailEl=document.querySelector("#email"),passEl=document.querySelector("#password"),submit=document.querySelector("#submit"),msg=document.querySelector("#message"),forgot=document.querySelector("#forgot"),createAccount=document.querySelector("#createAccount");
+const form=document.querySelector("#loginForm"),emailEl=document.querySelector("#email"),passEl=document.querySelector("#password"),submit=document.querySelector("#submit"),msg=document.querySelector("#message"),forgot=document.querySelector("#forgot");
 function show(text,type="ok"){msg.textContent=text;msg.className="message show "+type}
 function busy(on){submit.disabled=on;submit.textContent=on?"Please wait…":"Sign in securely"}
 async function allowedWorkspace(session){
@@ -48,19 +48,6 @@ form.addEventListener("submit",async e=>{
  }catch(err){show(err.message||"Unable to sign in. Check your credentials and try again.","error");busy(false)}
 });
 
-createAccount.addEventListener("click",async()=>{
- const email=emailEl.value.trim(),password=passEl.value;
- if(!email||!password){show("Enter your email and choose a password of at least 8 characters first.","error");return}
- if(password.length<8){show("Use a password with at least 8 characters.","error");return}
- createAccount.disabled=true;busy(true);
- try{
-  const {data,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:location.origin+"/login/?confirmed=1"}});
-  if(error)throw error;
-  if(data.session){await client.auth.signOut();}
-  show("Account request submitted. Check your email for a verification link if requested. The private workspace remains locked until the owner approves this email address.");
- }catch(err){show(err.message||"Could not create the account request.","error")}
- finally{createAccount.disabled=false;busy(false)}
-});
 forgot.addEventListener("click",async()=>{
  const email=emailEl.value.trim();
  if(!email){show("Enter your account email above, then choose Forgot password again.","error");emailEl.focus();return}
