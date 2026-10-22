@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="J-ROC AI Chairman Suite — private executive command dashboard.">
+<title>Chairman Suite | J-ROC AI</title>
+<style>
+:root{color-scheme:dark;--bg:#080b14;--panel:#101827;--panel2:#0c1321;--line:#26334b;--text:#f3f6ff;--muted:#a4b1c8;--blue:#4da3ff;--cyan:#54e2ff;--green:#75e0b0;--amber:#ffcc80;--red:#ff8f9a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -10%,#173665 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.55 Inter,"Segoe UI",system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}.shell{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}aside{border-right:1px solid var(--line);background:#080c15eF;padding:22px 16px;display:flex;flex-direction:column;gap:24px}.brand{font-weight:950;font-size:17px;letter-spacing:.05em;padding:3px 8px}.brand span{color:var(--cyan)}.kicker{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#7285a4;font-weight:850;padding:0 10px}.nav{display:grid;gap:5px}.nav button{background:transparent;color:var(--muted);border:1px solid transparent;text-align:left;padding:10px 12px;border-radius:10px}.nav button:hover,.nav button.active{background:#14223a;border-color:#29496f;color:white}.nav button span{display:inline-block;width:27px;color:var(--cyan);font-size:11px;font-weight:900}.asidefoot{margin-top:auto;color:var(--muted);font-size:12px;padding:10px}.main{min-width:0}.topbar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 28px;border-bottom:1px solid var(--line);background:#080b14eF;backdrop-filter:blur(14px)}.crumb{font-size:12px;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.userpill,.pill{border:1px solid var(--line);background:#111b2d;border-radius:99px;padding:6px 10px;font-size:12px;color:var(--muted)}.btn{border:1px solid #397bc4;background:linear-gradient(135deg,#2674d9,#164b9a);color:white;padding:9px 13px;border-radius:9px;font-weight:800}.btn.secondary{background:#111b2d;border-color:var(--line);color:var(--text)}.btn.danger{background:#35171f;border-color:#713340}.content{width:min(1450px,100%);margin:auto;padding:28px}.pagehead{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(29px,4vw,44px);letter-spacing:-.04em;line-height:1.1;margin:7px 0 8px}h2{font-size:19px;margin:0 0 12px}h3{font-size:15px;margin:0 0 7px}.muted{color:var(--muted)}.sub{max-width:730px;color:var(--muted);margin:0}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}.stat,.panel,.tile{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#121c2e,#0c1220);padding:18px}.stat small{color:var(--muted);display:block}.stat strong{display:block;font-size:25px;margin:7px 0 2px}.columns{grid-template-columns:minmax(0,1.35fr) minmax(280px,.85fr);align-items:start}.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.tile{min-height:160px;display:flex;flex-direction:column;gap:7px}.tile .glyph{font-weight:900;color:var(--cyan);font-size:11px;border:1px solid #2d4d73;background:#142b4b;border-radius:8px;padding:5px 8px;align-self:flex-start}.tile p{font-size:13px;color:var(--muted);margin:0}.tile a{margin-top:auto;color:var(--cyan);font-size:12px;font-weight:800}.statusrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #202c40}.statusrow:last-child{border-bottom:0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:8px}.dot.good{background:var(--green)}.dot.bad{background:var(--red)}.notice{padding:13px 15px;border:1px solid #5a4b2b;background:#231e13;border-radius:12px;color:#e6d6b4;font-size:13px;margin:16px 0}.list{display:grid;gap:9px}.item{padding:12px;border-radius:10px;background:#0b1220;border:1px solid #202c40;display:flex;justify-content:space-between;gap:12px;align-items:start}.item p{margin:3px 0 0;color:var(--muted);font-size:12px}.item button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:5px 8px}.taskform{display:flex;gap:8px;margin:10px 0 15px}.taskform input{min-width:0;flex:1;background:#080e19;border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:9px}.empty{color:var(--muted);font-size:13px;padding:14px 0}.section{display:none}.section.active{display:block}.footnote{font-size:11px;color:#8190a8;margin-top:15px}.wide{grid-column:1/-1}.linklist{display:grid;gap:8px}.linklist a{padding:10px 12px;border:1px solid var(--line);border-radius:9px;color:var(--muted)}.linklist a:hover{color:white;border-color:var(--blue)}.hidden{display:none!important}
+@media(max-width:1100px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.columns{grid-template-columns:1fr}}
+@media(max-width:720px){.shell{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:12px;gap:10px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:8px 10px}.nav button span{width:auto;margin-right:5px}.asidefoot,.kicker{display:none}.topbar{padding:13px 16px}.content{padding:20px 14px}.pagehead{display:block}.pagehead .btn{margin-top:12px}.tiles{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:13px}.stat strong{font-size:21px}}
+</style>
+</head>
+<body>
+<div id="authwall" class="content"><div class="panel"><div class="eyebrow">J-ROC AI · Chairman Suite</div><h1>Checking private workspace access…</h1><p class="muted" id="authmessage">Verifying your signed-in session and owner-approved membership.</p><a class="btn hidden" id="loginlink" href="/login/">Go to sign in</a></div></div>
+<div id="app" class="shell hidden">
+<aside>
+<a class="brand" href="/"><span>J-ROC</span> AI / CHAIRMAN</a>
+<div><div class="kicker">Executive Control</div><nav class="nav" aria-label="Chairman Suite navigation">
+<button class="active" data-view="overview"><span>01</span> Command overview</button>
+<button data-view="platform"><span>02</span> Platform systems</button>
+<button data-view="missions"><span>03</span> Missions & tasks</button>
+<button data-view="approvals"><span>04</span> Approvals & policy</button>
+<button data-view="evidence"><span>05</span> Audit & recovery</button>
+<button data-view="settings"><span>06</span> Suite settings</button>
+</nav></div>
+<div class="asidefoot">Private executive layer<br>Windows 11 · Web control surface<br><br>Authority stays with the Chairman.</div>
+</aside>
+<div class="main">
+<header class="topbar"><div><div class="crumb">J-ROC AI / Chairman Suite</div><strong id="sectiontitle">Command overview</strong></div><div class="top-actions"><span id="useremail" class="userpill">Verified member</span><button class="btn secondary" id="refresh">Refresh status</button><button class="btn danger" id="signout">Sign out</button></div></header>
+<main class="content">
+<section class="section active" id="view-overview">
+<div class="pagehead"><div><div class="eyebrow">Chairman Control OS</div><h1>Executive command center</h1><p class="sub">One controlled surface for platform visibility, decisions, work queues, and system governance. This dashboard is the control-plane shell; integrations are labeled honestly until connected and tested.</p></div><button class="btn" data-goto="missions">+ Create mission / task</button></div>
+<div class="notice"><strong>Control boundary:</strong> this interface does not yet execute privileged actions against GitHub, Cloudflare, Supabase, Windows, or AI workers. Approval and audit views are design foundations, not evidence of live automation. All real actions must be authenticated, scope-checked, logged, and verified server-side.</div>
+<div class="grid stats"><article class="stat"><small>Workspace identity</small><strong id="statidentity">Checking…</strong><small>Supabase session + membership</small></article><article class="stat"><small>Connected systems</small><strong>0 verified</strong><small>Live integrations not yet tested here</small></article><article class="stat"><small>Pending approvals</small><strong id="statapprovals">0</strong><small>Local demo queue only</small></article><article class="stat"><small>Local task queue</small><strong id="stattasks">0</strong><small>Stored in this browser only</small></article></div>
+<div class="grid columns"><article class="panel"><h2>Platform command deck</h2><div class="grid tiles">
+<article class="tile"><span class="glyph">JCO</span><h3>Chairman Office</h3><p>Executive controls, owner decisions, policy, and operating visibility.</p><a href="#platform" data-goto="platform">Open system directory →</a></article>
+<article class="tile"><span class="glyph">JAF</span><h3>AI Factory</h3><p>Software build pipelines, templates, release evidence, and deployment tracking.</p><a href="https://github.com/Jrocai1/Jrocai.online" target="_blank" rel="noopener">Website / factory roadmap ↗</a></article>
+<article class="tile"><span class="glyph">JAURSP</span><h3>Universal Repair PRO</h3><p>Repair workflow and business software project.</p><a href="https://github.com/Jrocai1/J-ROCAIUniversalRepairPRO" target="_blank" rel="noopener">Open repository ↗</a></article>
+<article class="tile"><span class="glyph">JAB</span><h3>AI Brain</h3><p>Model and agent intelligence layer; not the authority plane.</p><a href="https://github.com/Jrocai1" target="_blank" rel="noopener">Review repositories ↗</a></article>
+<article class="tile"><span class="glyph">JAH</span><h3>AI Hub</h3><p>Runtime, modules, data, and shared platform services.</p><a href="/modules/">Open module directory →</a></article>
+<article class="tile"><span class="glyph">JAIC</span><h3>J-ROC AI Cyber</h3><p>Security tools and governance roadmap.</p><a href="/modules/security-center/">Open security module →</a></article>
+</div></article>
+<article class="panel"><h2>Integration readiness</h2><div id="healthlist">
+<div class="statusrow"><span><i class="dot"></i>Identity session</span><span class="pill">Checking</span></div>
+<div class="statusrow"><span><i class="dot"></i>Workspace membership</span><span class="pill">Checking</span></div>
+<div class="statusrow"><span><i class="dot"></i>Live action APIs</span><span class="pill">Not connected</span></div>
+<div class="statusrow"><span><i class="dot"></i>Audit persistence</span><span class="pill">Not connected</span></div>
+<div class="statusrow"><span><i class="dot"></i>Windows runtime</span><span class="pill">Not connected</span></div>
+</div><p class="footnote">Status is based on checks this page can actually perform. A link to a service is not a live integration.</p></article></div>
+</section>
+<section class="section" id="view-platform">
+<div class="pagehead"><div><div class="eyebrow">System registry</div><h1>Platform systems</h1><p class="sub">The Chairman Suite is the authority and control plane. Brain, Hub, Factory, Workers, and product systems remain separate services governed through explicit permissions.</p></div></div>
+<div class="grid tiles">
+<article class="tile"><span class="glyph">JCO</span><h3>Chairman Suite / JCO</h3><p>Executive command, access policy, approvals, audit evidence, verification, and recovery.</p><a href="https://github.com/Jrocaiplatiform/JCO" target="_blank" rel="noopener">JCO repository ↗</a></article>
+<article class="tile"><span class="glyph">JAF</span><h3>AI Factory</h3><p>Reusable templates, software generation workflows, build validation, and packaging.</p><a href="https://github.com/Jrocai1" target="_blank" rel="noopener">Repository owner ↗</a></article>
+<article class="tile"><span class="glyph">JAH</span><h3>AI Hub</h3><p>Runtime and platform module directory.</p><a href="/modules/">Browse modules →</a></article>
+<article class="tile"><span class="glyph">JAB</span><h3>AI Brain / Model Gateway</h3><p>Intelligence and model routing; only owner-approved providers/models should be callable.</p><a href="/modules/neural-core/">Brain module →</a></article>
+<article class="tile"><span class="glyph">JAW</span><h3>AI Workers</h3><p>Workers need task-scoped permissions, budgets, timeouts, and an audit trail.</p><a href="/modules/ai-worker-control/">Worker module →</a></article>
+<article class="tile"><span class="glyph">JAURSP</span><h3>Universal Repair Suite PRO</h3><p>Repair-business and supported-device service workflows.</p><a href="https://github.com/Jrocai1/J-ROCAIUniversalRepairPRO" target="_blank" rel="noopener">Repair repository ↗</a></article>
+<article class="tile"><span class="glyph">JAIC</span><h3>J-ROC AI Cyber</h3><p>Personal security OS and security governance roadmap.</p><a href="/modules/security-center/">Security module →</a></article>
+<article class="tile"><span class="glyph">JMBK</span><h3>Master Brand Kit</h3><p>Shared identity and visual standards for connected J-ROC AI systems.</p><a href="/">Platform home →</a></article>
+<article class="tile"><span class="glyph">WEB</span><h3>Jrocai.online</h3><p>Public catalog and private workspace entry point.</p><a href="/">Open website →</a></article>
+</div>
+</section>
+<section class="section" id="view-missions">
+<div class="pagehead"><div><div class="eyebrow">Mission control</div><h1>Missions & tasks</h1><p class="sub">Capture work, keep a simple local queue, and prepare tasks for a future server-backed mission service. This queue is saved only in this browser.</p></div></div>
+<div class="grid columns"><article class="panel"><h2>New task</h2><form id="taskform" class="taskform"><input id="taskinput" maxlength="180" placeholder="Example: Verify Windows installer build" required><button class="btn" type="submit">Add task</button></form><div id="tasklist" class="list"><div class="empty">No local tasks yet.</div></div><p class="footnote">Do not put passwords, API keys, personal secrets, or sensitive customer data in this demo queue.</p></article><article class="panel"><h2>Mission lifecycle</h2><div class="statusrow"><span>1. Draft and scope</span><span class="pill">Required</span></div><div class="statusrow"><span>2. Permission / risk review</span><span class="pill">Required</span></div><div class="statusrow"><span>3. Chairman approval</span><span class="pill">Required for privileged actions</span></div><div class="statusrow"><span>4. Execute through authorized service</span><span class="pill">Not connected</span></div><div class="statusrow"><span>5. Verify result and record evidence</span><span class="pill">Not connected</span></div></article></div>
+</section>
+<section class="section" id="view-approvals">
+<div class="pagehead"><div><div class="eyebrow">Governance</div><h1>Approvals & policy</h1><p class="sub">No agent, worker, or model receives unrestricted authority from this page. Use a deny-by-default model with explicit scopes and human approval for high-impact changes.</p></div></div>
+<div class="grid columns"><article class="panel"><h2>Approval queue</h2><div id="approvalqueue" class="list"><div class="empty">No approval records. This prototype does not create real approval requests.</div></div></article><article class="panel"><h2>Default control policy</h2><div class="statusrow"><span>Identity</span><span class="pill">Required</span></div><div class="statusrow"><span>Scope / least privilege</span><span class="pill">Required</span></div><div class="statusrow"><span>Policy validation</span><span class="pill">Required</span></div><div class="statusrow"><span>Explicit approval</span><span class="pill">Privileged actions</span></div><div class="statusrow"><span>Audit evidence</span><span class="pill">Required</span></div><div class="statusrow"><span>Verification / recovery</span><span class="pill">Required</span></div></article></div>
+<div class="notice">Never place a Supabase service-role key, Cloudflare API token, GitHub token, or other secret in this HTML or browser JavaScript. Live operations require server-side endpoints and database policies.</div>
+</section>
+<section class="section" id="view-evidence">
+<div class="pagehead"><div><div class="eyebrow">Trust & continuity</div><h1>Audit & recovery</h1><p class="sub">The suite defines the evidence workflow; it does not claim that audit events or backups are being collected until a protected backend is connected.</p></div></div>
+<div class="grid tiles">
+<article class="tile"><span class="glyph">LOG</span><h3>Audit trail</h3><p>Record actor, request ID, target, scope, approval, action outcome, timestamp, and verification result.</p><a href="#settings" data-goto="settings">Review integration boundary →</a></article>
+<article class="tile"><span class="glyph">SAFE</span><h3>Recovery & rollback</h3><p>Require backups or reversible change plans before high-impact mutations; verify recovery success.</p><a href="#approvals" data-goto="approvals">Review policy →</a></article>
+<article class="tile"><span class="glyph">CHECK</span><h3>Release evidence</h3><p>Attach test results, artifact checksums, commit identifiers, deployment status, and acceptance notes.</p><a href="https://github.com/Jrocai1/Jrocai.online/actions" target="_blank" rel="noopener">Website workflow runs ↗</a></article>
+</div>
+<article class="panel" style="margin-top:14px"><h2>Required security lifecycle</h2><p class="muted">Identity → Scope → Policy → Approval → Action → Evidence → Verification → Recovery</p><p class="footnote">A completed UI screen is not proof that a system action happened. Each real integration must return a result and create durable evidence.</p></article>
+</section>
+<section class="section" id="view-settings">
+<div class="pagehead"><div><div class="eyebrow">Configuration</div><h1>Suite settings</h1><p class="sub">Session details and current implementation boundaries.</p></div></div>
+<div class="grid columns"><article class="panel"><h2>Signed-in workspace</h2><div class="statusrow"><span>Account</span><strong id="settingemail">Loading</strong></div><div class="statusrow"><span>Membership role</span><strong id="settingrole">Loading</strong></div><div class="statusrow"><span>Authentication provider</span><strong>Supabase Auth</strong></div><div class="statusrow"><span>Task storage</span><strong>Browser-local demo</strong></div></article><article class="panel"><h2>Implementation boundary</h2><div class="statusrow"><span>Chairman UI shell</span><span class="pill">This release</span></div><div class="statusrow"><span>Live privileged APIs</span><span class="pill">Not connected</span></div><div class="statusrow"><span>Native Windows service / IPC</span><span class="pill">Future release gate</span></div><div class="statusrow"><span>Secure updater / rollback</span><span class="pill">Future release gate</span></div><a class="btn secondary" style="display:inline-block;margin-top:14px" href="https://github.com/Jrocai1/Jrocai.online">Open website repository ↗</a></article></div>
+</section>
+<p class="footnote">J-ROC AI Chairman Suite · private executive control surface · status refreshed on demand.</p>
+</main></div></div>
+<script type="module">
+const SUPABASE_URL="https://dfgiqvjepytgvjyxszqe.supabase.co";
+const SUPABASE_KEY="sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
+const authwall=document.querySelector("#authwall"),app=document.querySelector("#app"),authmessage=document.querySelector("#authmessage"),loginlink=document.querySelector("#loginlink");
+let client,user,membership,localTasks=[];
+function showGate(message,showLogin=true){authmessage.textContent=message;loginlink.classList.toggle("hidden",!showLogin);authwall.classList.remove("hidden");app.classList.add("hidden")}
+function health(label,state,kind=""){return '<div class="statusrow"><span><i class="dot '+kind+'"></i>'+label+'</span><span class="pill">'+state+'</span></div>'}
+async function verifyAccess(){
+ try{
+  const {createClient}=await import("https://esm.sh/@supabase/supabase-js@2");
+  client=createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const {data:{session},error:sessionError}=await client.auth.getSession();
+  if(sessionError||!session){showGate("Sign in with the approved private workspace account to access Chairman Suite.");return}
+  user=session.user;
+  const {data:member,error:memberError}=await client.from("workspace_members").select("user_id,email,role").eq("user_id",user.id).maybeSingle();
+  if(memberError){showGate("Could not verify workspace membership. Access is denied until the membership check succeeds.");return}
+  if(!member){await client.auth.signOut();showGate("This account is not an approved workspace member. Contact the workspace owner.");return}
+  membership=member;
+  document.querySelector("#useremail").textContent=member.email||user.email||"Verified member";
+  document.querySelector("#settingemail").textContent=member.email||user.email||"—";
+  document.querySelector("#settingrole").textContent=member.role||"member";
+  document.querySelector("#statidentity").textContent="Verified";
+  document.querySelector("#healthlist").innerHTML=health("Identity session","Verified","good")+health("Workspace membership",member.role||"Member","good")+health("Live action APIs","Not connected")+health("Audit persistence","Not connected")+health("Windows runtime","Not connected");
+  authwall.classList.add("hidden");app.classList.remove("hidden");
+  loadTasks();updateCounts();
+ }catch(e){showGate("The access check could not finish. Check connectivity and try again. Details: "+(e?.message||"unknown error"))}
+}
+function readTasks(){try{const a=JSON.parse(localStorage.getItem("jroc-chairman-suite-tasks-v1")||"[]");return Array.isArray(a)?a:[]}catch{return []}}
+function saveTasks(){try{localStorage.setItem("jroc-chairman-suite-tasks-v1",JSON.stringify(localTasks))}catch{}}
+function loadTasks(){localTasks=readTasks();renderTasks()}
+function updateCounts(){document.querySelector("#stattasks").textContent=String(localTasks.length);document.querySelector("#statapprovals").textContent="0"}
+function renderTasks(){const root=document.querySelector("#tasklist");root.innerHTML="";if(!localTasks.length){root.innerHTML='<div class="empty">No local tasks yet. Add the first task above.</div>';updateCounts();return}localTasks.forEach(t=>{const row=document.createElement("div");row.className="item";const info=document.createElement("div");const title=document.createElement("strong");title.textContent=t.title;const meta=document.createElement("p");meta.textContent=(t.done?"Completed":"Open")+" · "+new Date(t.created).toLocaleString();info.append(title,meta);const controls=document.createElement("div");controls.style.display="flex";controls.style.gap="6px";const done=document.createElement("button");done.textContent=t.done?"Reopen":"Done";done.onclick=()=>{t.done=!t.done;saveTasks();renderTasks()};const del=document.createElement("button");del.textContent="Delete";del.onclick=()=>{localTasks=localTasks.filter(x=>x.id!==t.id);saveTasks();renderTasks()};controls.append(done,del);row.append(info,controls);root.appendChild(row)});updateCounts()}
+document.querySelector("#taskform").addEventListener("submit",e=>{e.preventDefault();const input=document.querySelector("#taskinput"),title=input.value.trim();if(!title)return;localTasks.unshift({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),title,done:false,created:new Date().toISOString()});saveTasks();input.value="";renderTasks()});
+const labels={overview:"Command overview",platform:"Platform systems",missions:"Missions & tasks",approvals:"Approvals & policy",evidence:"Audit & recovery",settings:"Suite settings"};
+function go(view){if(!labels[view])return;document.querySelectorAll(".section").forEach(el=>el.classList.toggle("active",el.id==="view-"+view));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));document.querySelector("#sectiontitle").textContent=labels[view];window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();go(b.dataset.goto)}));
+document.querySelector("#refresh").addEventListener("click",()=>verifyAccess());
+document.querySelector("#signout").addEventListener("click",async()=>{if(client)await client.auth.signOut();location.href="/login/"});
+verifyAccess();
+</script>
+</body>
+</html>
