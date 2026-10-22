@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="J-ROC AI Main Workspace — manage modules, mods, tools, workers and integrations.">
+<title>J-ROC AI | Main Workspace</title>
+<style>
+:root{color-scheme:dark;--bg:#080b14;--panel:#101827;--panel2:#0c1321;--line:#26334b;--text:#f3f6ff;--muted:#a4b1c8;--blue:#4da3ff;--cyan:#54e2ff;--green:#75e0b0;--amber:#f5c56b;--red:#ff8b9a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#173665 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.55 Inter,"Segoe UI",system-ui,sans-serif}button,input,select{font:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--line);background:#080b14d9;padding:22px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:24px}.brand{font-size:17px;font-weight:900;letter-spacing:.05em;padding:0 10px}.brand b{color:var(--cyan)}.side-label{color:#73839f;font-size:10px;font-weight:850;letter-spacing:.16em;text-transform:uppercase;padding:0 11px;margin:12px 0 5px}.nav{display:grid;gap:5px}.nav button,.nav a{border:1px solid transparent;background:transparent;color:var(--muted);text-align:left;padding:10px 11px;border-radius:10px;display:flex;gap:11px;align-items:center}.nav button:hover,.nav a:hover,.nav button.active{background:#14223a;color:var(--text);border-color:#294365}.nav button.active{box-shadow:inset 3px 0 var(--cyan)}.nav .ico{width:21px;text-align:center;color:var(--cyan)}.sidebar-bottom{margin-top:auto}.private-note{padding:12px;border:1px solid #594a2a;background:#251f13;border-radius:11px;color:#dbc99e;font-size:12px}.main{min-width:0}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,42px);border-bottom:1px solid var(--line);background:#080b14b8;gap:12px}.crumb{font-size:13px;color:var(--muted)}.top-actions{display:flex;gap:9px;align-items:center}.pill{border:1px solid var(--line);background:var(--panel);border-radius:99px;padding:7px 11px;color:var(--muted);font-size:12px}.avatar{width:34px;height:34px;border-radius:11px;background:#17365a;display:grid;place-items:center;color:var(--cyan);font-weight:900}.content{padding:clamp(20px,4vw,42px);max-width:1500px;margin:auto}.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:850}.heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}.heading h1{font-size:clamp(30px,4vw,43px);line-height:1.1;letter-spacing:-.04em;margin:8px 0}.heading p{color:var(--muted);max-width:760px;margin:0}.btn{border:1px solid #397bc4;background:linear-gradient(135deg,#2674d9,#164b9a);color:#fff;border-radius:10px;padding:10px 14px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.secondary{background:#111b2d;border-color:var(--line);color:var(--text)}.btn.ghost{background:transparent;border-color:var(--line);color:var(--muted)}.btn:disabled{opacity:.45;cursor:not-allowed}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:22px 0}.stat,.panel,.mod{background:linear-gradient(145deg,#111b2d,#0c1220);border:1px solid var(--line);border-radius:15px}.stat{padding:17px}.stat .label{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:27px;letter-spacing:-.04em;margin:4px 0}.stat small{color:#8090aa}.workspace-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:15px}.panel{padding:19px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.panel h2{font-size:17px;margin:0}.panel-head small{color:var(--muted)}.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.quick button{border:1px solid var(--line);background:#0c1423;color:var(--text);padding:14px;border-radius:12px;text-align:left}.quick button:hover{border-color:var(--blue)}.quick strong{display:block;margin-bottom:3px}.quick small{color:var(--muted)}.statusline{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block}.dot.green{background:var(--green)}.modtools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.search{flex:1;min-width:200px;background:#0b1220;border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--text)}select{background:#0b1220;border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--text)}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 16px}.tab{padding:7px 11px;border:1px solid var(--line);border-radius:99px;background:#0b1220;color:var(--muted);font-size:12px}.tab[aria-pressed=true]{background:#16335a;color:white;border-color:var(--blue)}.modgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.mod{padding:16px;display:flex;flex-direction:column;min-height:220px;gap:10px}.modtop{display:flex;align-items:center;justify-content:space-between;gap:8px}.modicon{width:39px;height:39px;display:grid;place-items:center;background:#142b4b;border-radius:11px;color:var(--cyan);font-weight:900;font-size:12px}.tag{font-size:10px;letter-spacing:.04em;text-transform:uppercase;border:1px solid #526078;color:#bdc8db;border-radius:99px;padding:4px 7px;white-space:nowrap}.tag.enabled{color:var(--green);border-color:#246b56;background:#103126}.tag.pending{color:var(--amber);border-color:#6d5524;background:#282111}.mod h3{font-size:16px;margin:0}.mod p{font-size:13px;color:var(--muted);margin:0;flex:1}.modmeta{font-size:11px;color:#8190a9}.modactions{display:flex;gap:8px;margin-top:4px}.modactions button{flex:1;padding:8px 10px;font-size:12px}.empty{grid-column:1/-1;padding:25px;border:1px dashed var(--line);border-radius:12px;text-align:center;color:var(--muted)}.activity{display:grid;gap:13px}.event{display:flex;gap:10px;font-size:13px;color:var(--muted)}.event strong{display:block;color:var(--text);font-weight:650}.event .mark{width:29px;height:29px;border:1px solid var(--line);background:#111b2d;border-radius:9px;display:grid;place-items:center;flex-shrink:0;color:var(--cyan)}.notice{border:1px solid #594a2a;background:#251f13;border-radius:12px;padding:14px 16px;color:#dbc99e;font-size:13px;margin:18px 0}.section{display:none}.section.active{display:block}.footer{padding:22px 0;color:#72819b;font-size:12px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+@media(max-width:1050px){.modgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:13px;border-right:0;border-bottom:1px solid var(--line);gap:10px}.sidebar .side-label,.sidebar-bottom{display:none}.nav{display:flex;overflow:auto}.nav button,.nav a{white-space:nowrap;padding:8px 10px}.nav .ico{width:auto}.brand{padding:5px 8px}.topbar{height:58px}.modgrid{grid-template-columns:1fr}.quick{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:13px}.stat strong{font-size:23px}.content{padding:20px 14px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<a class="brand" href="../">J-ROC <b>AI</b></a>
+<div><div class="side-label">Workspace</div><div class="nav" id="mainNav">
+<button class="active" data-view="overview"><span class="ico">⌂</span>Overview</button>
+<button data-view="modules"><span class="ico">▦</span>All Mods</button>
+<button data-view="installed"><span class="ico">✓</span>Installed</button>
+<button data-view="catalog"><span class="ico">＋</span>Mod Catalog</button>
+<button data-view="activity"><span class="ico">◷</span>Activity</button>
+<button data-view="settings"><span class="ico">⚙</span>Workspace Settings</button>
+</div></div>
+<div><div class="side-label">Platform</div><div class="nav">
+<a href="../"><span class="ico">↗</span>Public Website</a>
+<a href="https://github.com/Jrocai1/Jrocai.online" target="_blank" rel="noopener"><span class="ico">⌘</span>Source Repository</a>
+</div></div>
+<div class="sidebar-bottom private-note"><strong>Workspace status</strong><br>Local prototype mode. Sign-in and shared cloud storage are not configured.</div>
+</aside>
+<div class="main">
+<header class="topbar"><div class="crumb">J-ROC AI <span style="color:#526078">/</span> <span id="crumb">Main Workspace</span></div><div class="top-actions"><span class="pill">LOCAL WORKSPACE</span><div class="avatar" title="Chairman workspace">JR</div></div></header>
+<main class="content">
+<section id="view-overview" class="section active">
+<div class="heading"><div><div class="eyebrow">Unified mod management</div><h1>Main Workspace</h1><p>The central home for J-ROC AI mods, plugins, modules, worker packs, tools, and integrations. Browse the full catalog, activate the modules you want to track, and see what still needs a real backend connection.</p></div><button class="btn" data-go="modules">Browse all mods →</button></div>
+<div class="stats">
+<div class="stat"><span class="label">Catalog modules</span><strong id="stat-total">0</strong><small>Defined in this workspace</small></div>
+<div class="stat"><span class="label">Enabled locally</span><strong id="stat-enabled">0</strong><small>Saved in this browser</small></div>
+<div class="stat"><span class="label">Available to activate</span><strong id="stat-available">0</strong><small>Workspace catalog entries</small></div>
+<div class="stat"><span class="label">Backend connections</span><strong>0</strong><small>Not configured yet</small></div>
+</div>
+<div class="workspace-grid">
+<div class="panel"><div class="panel-head"><h2>Workspace launchpad</h2><small>Jump into a section</small></div><div class="quick">
+<button data-go="modules"><strong>▦ All Mods</strong><small>Browse modules across every system</small></button>
+<button data-go="installed"><strong>✓ Enabled Mods</strong><small>Review your local active list</small></button>
+<button data-go="catalog"><strong>＋ Mod Catalog</strong><small>Find modules by category</small></button>
+<button data-go="settings"><strong>⚙ Workspace Settings</strong><small>Export or reset local settings</small></button>
+</div></div>
+<div class="panel"><div class="panel-head"><h2>Workspace health</h2><span class="tag pending">Prototype</span></div><div class="activity">
+<div class="event"><span class="mark">✓</span><div><strong>Catalog interface ready</strong>Browse, filter and locally enable modules.</div></div>
+<div class="event"><span class="mark">!</span><div><strong>Cloud sync not connected</strong>Local choices are stored in this browser only.</div></div>
+<div class="event"><span class="mark">!</span><div><strong>Runtime integrations pending</strong>Enabling a catalog entry does not install or run its underlying service.</div></div>
+</div></div>
+</div>
+<div class="notice"><strong>Important:</strong> This workspace is the UI foundation, not a claim that every mod is already implemented. Actual plugin execution, secure permissions, account sign-in, shared database persistence, and audit logging must be wired to authenticated backend services before production use.</div>
+<div class="footer">J-ROC AI Main Workspace · Modular platform control surface</div>
+</section>
+<section id="view-modules" class="section">
+<div class="heading"><div><div class="eyebrow">Workspace directory</div><h1>All Mods</h1><p>Browse all registered J-ROC AI modules and see which entries are enabled in this browser.</p></div></div>
+<div class="modtools"><input id="modSearch" class="search" type="search" placeholder="Search mods, tools, systems…"><select id="statusFilter" aria-label="Filter by status"><option value="all">All states</option><option value="enabled">Enabled locally</option><option value="disabled">Not enabled</option></select></div>
+<div id="categoryTabs" class="tabs"></div><div id="modGrid" class="modgrid"></div>
+</section>
+<section id="view-installed" class="section">
+<div class="heading"><div><div class="eyebrow">Your selected modules</div><h1>Enabled Mods</h1><p>Modules you have enabled for this browser workspace. These toggles track your selection; they do not install executable code or activate cloud services.</p></div><button id="exportEnabled" class="btn secondary">Export enabled list ↓</button></div>
+<div id="installedGrid" class="modgrid"></div>
+</section>
+<section id="view-catalog" class="section">
+<div class="heading"><div><div class="eyebrow">Mod catalog</div><h1>Discover Modules</h1><p>Choose a category to browse modules across the J-ROC AI ecosystem.</p></div></div>
+<div id="catalogCategories" class="quick"></div>
+</section>
+<section id="view-activity" class="section">
+<div class="heading"><div><div class="eyebrow">Workspace events</div><h1>Activity</h1><p>Local module enable/disable events recorded in this browser session and saved workspace state.</p></div><button id="clearActivity" class="btn ghost">Clear activity</button></div>
+<div class="panel"><div id="activityList" class="activity"></div></div>
+</section>
+<section id="view-settings" class="section">
+<div class="heading"><div><div class="eyebrow">Workspace preferences</div><h1>Settings</h1><p>Manage local workspace preferences and export your current configuration.</p></div></div>
+<div class="workspace-grid">
+<div class="panel"><div class="panel-head"><h2>Workspace data</h2></div><p style="color:var(--muted)">Your enabled-mod list and event log are saved in this browser's local storage. They do not sync to other devices or users.</p><div class="modactions"><button id="exportAll" class="btn secondary">Export workspace JSON</button><button id="importBtn" class="btn secondary">Import JSON</button><input id="importFile" type="file" accept="application/json,.json" hidden></div></div>
+<div class="panel"><div class="panel-head"><h2>Reset local workspace</h2></div><p style="color:var(--muted)">Reset the enabled list and local event history. This does not change any remote system.</p><button id="resetWorkspace" class="btn ghost">Reset local data</button></div>
+</div>
+<div class="notice">Security roadmap: add authentication, role-based access, server-side permission checks, signed module manifests, versioned releases, integrity verification, sandboxed execution, and audit trails before allowing installable code or administrative actions.</div>
+</section>
+</main>
+</div>
+</div>
+<script>
+const modules=[
+{id:"chairman-command",name:"Chairman Command Center",cat:"Control Center",kind:"module",icon:"CC",desc:"Executive workspace shell for system navigation, approvals, and high-level status.",system:"JCO",state:"planned"},
+{id:"platform-hub",name:"AI Hub Connector",cat:"Core Platform",kind:"integration",icon:"HUB",desc:"Common entry point for registered systems, workflows, and runtime endpoints.",system:"JAH",state:"planned"},
+{id:"factory-orchestrator",name:"AI Factory Orchestrator",cat:"Builders",kind:"module",icon:"AF",desc:"Coordinates software build tasks and reusable project templates.",system:"JAF",state:"planned"},
+{id:"app-template-library",name:"App Template Library",cat:"Builders",kind:"tool",icon:"TPL",desc:"Catalog structure for reusable app templates, starter kits, and build scripts.",system:"JAAF",state:"planned"},
+{id:"worker-registry",name:"AI Worker Registry",cat:"AI & Agents",kind:"module",icon:"WRK",desc:"Registry concept for specialist workers, capabilities, and lifecycle metadata.",system:"JAW",state:"planned"},
+{id:"brain-agent-router",name:"Brain Agent Router",cat:"AI & Agents",kind:"integration",icon:"BRAIN",desc:"Routes tasks to approved agent roles; execution adapter is not connected.",system:"JAIB",state:"planned"},
+{id:"multi-model-router",name:"Multi-Model Router",cat:"AI & Models",kind:"integration",icon:"LLM",desc:"Planned gateway for explicitly approved models and available providers.",system:"JLM",state:"planned"},
+{id:"model-policy-allowlist",name:"Model Allowlist Manager",cat:"AI & Models",kind:"tool",icon:"ACL",desc:"Defines a future allowlist of model identifiers and provider policy.",system:"JLM",state:"planned"},
+{id:"code-review-worker",name:"Code Review Worker",cat:"AI & Agents",kind:"agent",icon:"REV",desc:"Review checklist and planned automated code-quality workflow.",system:"JAW",state:"planned"},
+{id:"test-healer-worker",name:"Test & Healer Worker",cat:"AI & Agents",kind:"agent",icon:"FIX",desc:"Planned test triage and recovery workflow with human approval gates.",system:"JAW",state:"planned"},
+{id:"security-posture",name:"Security Posture Monitor",cat:"Security",kind:"tool",icon:"SEC",desc:"Future security checks, findings registry, and remediation tracking.",system:"JAIC",state:"planned"},
+{id:"repair-workbench",name:"Universal Repair Workbench",cat:"Device Services",kind:"module",icon:"REP",desc:"Repair ticket, diagnostic checklist, and service workflow module concept.",system:"JAURSP",state:"planned"},
+{id:"apple-device-profiles",name:"Apple Device Profiles",cat:"Device Services",kind:"module",icon:"APL",desc:"Structured device model records and service notes for supported Apple products.",system:"JAURSP",state:"planned"},
+{id:"samsung-device-profiles",name:"Samsung Device Profiles",cat:"Device Services",kind:"module",icon:"SAM",desc:"Structured device model records and service notes for supported Samsung products.",system:"JAURSP",state:"planned"},
+{id:"inventory-parts",name:"Parts & Inventory",cat:"Business Operations",kind:"module",icon:"INV",desc:"Inventory record concepts for parts, serials, suppliers, and stock movement.",system:"JAURSP",state:"planned"},
+{id:"repair-ticketing",name:"Repair Ticket Manager",cat:"Business Operations",kind:"module",icon:"TKT",desc:"Service ticket lifecycle, customer intake, work status, and repair notes.",system:"JAURSP",state:"planned"},
+{id:"customer-crm",name:"Customer & CRM Tools",cat:"Business Operations",kind:"module",icon:"CRM",desc:"Customer records, contact preferences, service history, and consent workflows.",system:"JAURSP",state:"planned"},
+{id:"api-developer-kit",name:"Developer & API Kit",cat:"Developer Tools",kind:"tool",icon:"API",desc:"Planned API docs, integration examples, and key-safe configuration guidance.",system:"J-ROC AI API",state:"planned"},
+{id:"docs-center",name:"Documentation Center",cat:"Developer Tools",kind:"module",icon:"DOC",desc:"Documentation index for setup, architecture, release notes, and operating guides.",system:"Platform",state:"planned"},
+{id:"plugin-permissions",name:"Plugin Permissions Registry",cat:"Security",kind:"tool",icon:"PERM",desc:"Future capability scopes and user-consent records for each plugin.",system:"Platform",state:"planned"},
+{id:"release-manager",name:"Release & Update Manager",cat:"Developer Tools",kind:"tool",icon:"UPD",desc:"Planned update catalog, version tracking, release notes, and rollback metadata.",system:"Platform",state:"planned"},
+{id:"automation-recipes",name:"Automation Recipe Library",cat:"Automation",kind:"module",icon:"AUTO",desc:"Reusable workflow definitions for approved automations and operator review.",system:"JAF / JAW",state:"planned"},
+{id:"entertainment-studio",name:"Entertainment Studio Tools",cat:"Creative Systems",kind:"module",icon:"EST",desc:"Future creative project workspace for music, media, and production workflows.",system:"Studio",state:"planned"},
+{id:"brand-asset-kit",name:"Master Brand Asset Kit",cat:"Creative Systems",kind:"tool",icon:"BRD",desc:"Central brand assets, logo variants, and consistent product identity metadata.",system:"JMBK",state:"planned"},
+{id:"audit-log-viewer",name:"Audit Log Viewer",cat:"Security",kind:"tool",icon:"LOG",desc:"Future searchable event history for administrative and plugin actions.",system:"Platform",state:"planned"},
+{id:"workspace-backup",name:"Workspace Export & Backup",cat:"Workspace Utilities",kind:"tool",icon:"BAK",desc:"Export and restore the local workspace configuration as JSON.",system:"Workspace",state:"available"},
+{id:"module-search",name:"Module Search & Filters",cat:"Workspace Utilities",kind:"tool",icon:"FND",desc:"Search this module catalog and filter entries by category and local status.",system:"Workspace",state:"available"},
+{id:"local-preferences",name:"Local Workspace Preferences",cat:"Workspace Utilities",kind:"module",icon:"CFG",desc:"Save enabled-module selections and activity events in this browser.",system:"Workspace",state:"available"}
+];
+const KEY="jrocai.main-workspace.v1";
+let saved=loadState(),activeCat="All categories",currentView="overview";
+function loadState(){try{return JSON.parse(localStorage.getItem(KEY))||{enabled:[],events:[]}}catch{return{enabled:[],events:[]}}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(saved));renderStats()}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function eventLog(action,m){saved.events.unshift({action,name:m.name,time:new Date().toISOString()});saved.events=saved.events.slice(0,80);persist();renderActivity()}
+function isEnabled(m){return saved.enabled.includes(m.id)}
+function renderStats(){document.querySelector("#stat-total").textContent=modules.length;document.querySelector("#stat-enabled").textContent=saved.enabled.length;document.querySelector("#stat-available").textContent=modules.filter(m=>!isEnabled(m)).length}
+function go(view){currentView=view;document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id==="view-"+view));document.querySelectorAll("#mainNav [data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));document.querySelector("#crumb").textContent=({overview:"Main Workspace",modules:"All Mods",installed:"Enabled Mods",catalog:"Mod Catalog",activity:"Activity",settings:"Workspace Settings"})[view]||"Workspace";if(view==="modules")renderModules();if(view==="installed")renderInstalled();if(view==="catalog")renderCatalog();if(view==="activity")renderActivity();if(view==="settings")renderStats();window.scrollTo({top:0,behavior:"smooth"})}
+function card(m){const enabled=isEnabled(m);return '<article class="mod"><div class="modtop"><span class="modicon">'+escapeHtml(m.icon)+'</span><span class="tag '+(enabled?"enabled":m.state==="available"?"enabled":"pending")+'">'+(enabled?"Enabled locally":m.state==="available"?"UI available":"Not installed")+'</span></div><h3>'+escapeHtml(m.name)+'</h3><p>'+escapeHtml(m.desc)+'</p><div class="modmeta">'+escapeHtml(m.cat)+' · '+escapeHtml(m.kind)+' · '+escapeHtml(m.system)+'</div><div class="modactions"><button class="btn '+(enabled?"secondary":"")+'" data-toggle="'+escapeHtml(m.id)+'">'+(enabled?"Disable":"Enable locally")+'</button><button class="btn ghost" data-details="'+escapeHtml(m.id)+'">Details</button></div></article>'}
+function bindCards(root){root.querySelectorAll("[data-toggle]").forEach(b=>b.onclick=()=>{const m=modules.find(x=>x.id===b.dataset.toggle);if(!m)return;if(isEnabled(m)){saved.enabled=saved.enabled.filter(id=>id!==m.id);eventLog("Disabled locally",m)}else{saved.enabled.push(m.id);eventLog("Enabled locally",m)}persist();renderModules();renderInstalled()});root.querySelectorAll("[data-details]").forEach(b=>b.onclick=()=>{const m=modules.find(x=>x.id===b.dataset.details);if(m)alert(m.name+"\n\nCategory: "+m.cat+"\nType: "+m.kind+"\nSystem: "+m.system+"\nStatus: "+(m.state==="available"?"Workspace UI available":"Planned integration")+"\n\n"+m.desc+"\n\nNote: catalog enablement is local only; this module is not executing backend code.")})}
+function renderModules(){const root=document.querySelector("#modGrid"),q=document.querySelector("#modSearch").value.toLowerCase(),st=document.querySelector("#statusFilter").value;const list=modules.filter(m=>(activeCat==="All categories"||m.cat===activeCat)&&[m.name,m.desc,m.cat,m.system,m.kind].join(" ").toLowerCase().includes(q)&&(st==="all"||(st==="enabled"?isEnabled(m):!isEnabled(m))));root.innerHTML=list.length?list.map(card).join(""):'<div class="empty">No modules match these filters.</div>';bindCards(root);renderCategoryTabs()}
+function renderCategoryTabs(){const cats=["All categories",...new Set(modules.map(m=>m.cat))],root=document.querySelector("#categoryTabs");root.innerHTML=cats.map(c=>'<button class="tab" data-cat="'+escapeHtml(c)+'" aria-pressed="'+(activeCat===c)+'">'+escapeHtml(c)+'</button>').join("");root.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{activeCat=b.dataset.cat;renderModules()})}
+function renderInstalled(){const root=document.querySelector("#installedGrid"),list=modules.filter(isEnabled);root.innerHTML=list.length?list.map(card).join(""):'<div class="empty">No mods enabled yet. Open All Mods to enable catalog entries for this browser.</div>';bindCards(root)}
+function renderCatalog(){const root=document.querySelector("#catalogCategories"),cats=[...new Set(modules.map(m=>m.cat))];root.innerHTML=cats.map(c=>'<button data-catalog="'+escapeHtml(c)+'"><strong>'+escapeHtml(c)+'</strong><small>'+modules.filter(m=>m.cat===c).length+' modules · Browse category</small></button>').join("");root.querySelectorAll("[data-catalog]").forEach(b=>b.onclick=()=>{activeCat=b.dataset.catalog;go("modules");renderModules()})}
+function renderActivity(){const root=document.querySelector("#activityList"),events=saved.events||[];root.innerHTML=events.length?events.map(e=>'<div class="event"><span class="mark">'+(e.action.startsWith("Enabled")?"+":"−")+'</span><div><strong>'+escapeHtml(e.action)+': '+escapeHtml(e.name)+'</strong><span>'+escapeHtml(new Date(e.time).toLocaleString())+'</span></div></div>').join(""):'<div class="empty">No local activity yet.</div>'}
+function download(name,data){const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>go(b.dataset.view));document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));document.querySelector("#modSearch").addEventListener("input",renderModules);document.querySelector("#statusFilter").addEventListener("change",renderModules);
+document.querySelector("#exportEnabled").onclick=()=>download("jrocai-enabled-mods.json",{version:1,enabled:saved.enabled,modules:modules.filter(isEnabled).map(m=>({id:m.id,name:m.name,category:m.cat,system:m.system}))});
+document.querySelector("#exportAll").onclick=()=>download("jrocai-workspace.json",{version:1,exportedAt:new Date().toISOString(),enabled:saved.enabled,events:saved.events});
+document.querySelector("#importBtn").onclick=()=>document.querySelector("#importFile").click();document.querySelector("#importFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.enabled)||!data.enabled.every(id=>modules.some(m=>m.id===id)))throw Error("Invalid module IDs");saved.enabled=[...new Set(data.enabled)];saved.events=Array.isArray(data.events)?data.events.slice(0,80):[];persist();go("overview");alert("Workspace configuration imported.")}catch(err){alert("Could not import workspace JSON: "+err.message)}e.target.value=""};
+document.querySelector("#resetWorkspace").onclick=()=>{if(confirm("Reset enabled modules and activity stored in this browser?")){saved={enabled:[],events:[]};persist();renderActivity();go("overview")}};
+document.querySelector("#clearActivity").onclick=()=>{if(confirm("Clear local activity history?")){saved.events=[];persist();renderActivity()}};
+renderStats();renderCategoryTabs();renderActivity();
+</script>
+</body>
+</html>
