@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "registry": "J-ROC AI Main Workspace",
+  "source_of_truth": "Supabase public.workspace_applications",
+  "access_model": "Supabase Auth + workspace_members + row-level security",
+  "applications": [
+    {"slug":"main-workspace","name":"Main Workspace","route":"/workspace/","category":"Core Platform","status":"available","visibility":"workspace","roles":["member"]},
+    {"slug":"chairman-office","name":"Chairman Office","route":"/chairman/","category":"Control Center","status":"development","visibility":"owner","roles":["owner","chairman"]},
+    {"slug":"ai-factory","name":"J-ROC AI Factory","route":"/factory/","category":"Builders","status":"development","visibility":"workspace","roles":["operator","admin","owner","chairman"]},
+    {"slug":"website-builder","name":"Enterprise Website Builder","route":"/workspace/website-builder/","category":"Builders","status":"development","visibility":"workspace","roles":["member"]},
+    {"slug":"ai-intelligence","name":"AI Intelligence Center","route":"/ai/","category":"AI Systems","status":"planned","visibility":"workspace","roles":["member"]},
+    {"slug":"agent-center","name":"AI Agent Center","route":"/agents/","category":"AI Systems","status":"planned","visibility":"workspace","roles":["operator","admin","owner","chairman"]},
+    {"slug":"model-center","name":"Model Management","route":"/models/","category":"AI Systems","status":"planned","visibility":"workspace","roles":["operator","admin","owner","chairman"]},
+    {"slug":"repair-edition","name":"Universal Pro Repair Edition","route":"/repair/","category":"Products","status":"development","visibility":"workspace","roles":["member"]},
+    {"slug":"repair-academy","name":"Universal Repair Academy","route":"/academy/","category":"Products","status":"planned","visibility":"workspace","roles":["member"]},
+    {"slug":"business-center","name":"Business Operations","route":"/business/","category":"Business","status":"planned","visibility":"workspace","roles":["operator","admin","owner","chairman"]},
+    {"slug":"creative-studio","name":"Creative Studio","route":"/creative/","category":"Creative","status":"planned","visibility":"workspace","roles":["member"]},
+    {"slug":"workspace-settings","name":"Workspace Settings","route":"/workspace/settings/","category":"Administration","status":"development","visibility":"owner","roles":["owner","chairman","admin"]}
+  ]
+}
