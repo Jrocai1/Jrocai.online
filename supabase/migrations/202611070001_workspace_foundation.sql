@@ -8,8 +8,7 @@ create or replace function public.jroc_is_workspace_member()
 returns boolean
 language sql
 stable
-security definer
-set search_path = public
+security invoker
 as $$
   select exists (
     select 1 from public.workspace_members wm
@@ -21,14 +20,13 @@ create or replace function public.jroc_has_workspace_role(allowed_roles text[])
 returns boolean
 language sql
 stable
-security definer
-set search_path = public
+security invoker
 as $$
   select exists (
     select 1 from public.workspace_members wm
     where wm.user_id = auth.uid()
       and lower(coalesce(wm.role, 'member')) = any (
-        select lower(role_name) from unnest(allowed_roles) as role_name
+        select lower(role_name) from unnest(allowed_roles) as roles(role_name)
       )
   );
 $$;
@@ -94,7 +92,7 @@ using (
       select 1 from public.workspace_members wm
       where wm.user_id = auth.uid()
         and lower(coalesce(wm.role, 'member')) = any (
-          select lower(role_name) from unnest(required_roles) as role_name
+          select lower(role_name) from unnest(required_roles) as roles(role_name)
         )
     )
     or public.jroc_has_workspace_role(array['owner','chairman','admin'])
@@ -146,3 +144,7 @@ on conflict (slug) do update set
 
 -- No public signup is enabled here. Provision users through Supabase Auth
 -- and add approved user IDs to workspace_members using a trusted admin process.
+
+-- Explicit Data API privileges; RLS above remains the row-level authorization boundary.
+grant select, insert, update, delete on public.workspace_applications to authenticated;
+grant select, insert on public.workspace_audit_events to authenticated;
