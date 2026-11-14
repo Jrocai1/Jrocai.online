@@ -4,7 +4,9 @@ Reusable operational templates for the physical and digital product divisions.
 
 - Supplier intake: see `SUPPLIER_QUALIFICATION.md`.
 - Product release: see `PRODUCT_RELEASE_CHECKLIST.md`.
-- Full operating model, product families and launch phases: see `../JROC_AI_PRODUCT_OPERATIONS.md`.
+- Apparel line operating standards: see `JROC_AI_APPAREL_LINE.md`.
+- Garment technical pack: see `JROC_AI_APPAREL_TECH_PACK_TEMPLATE.md`.
+- Full operating model: see `../JROC_AI_PRODUCT_OPERATIONS.md`.
 - Database foundation: see `../../supabase/migrations/202611140001_jroc_product_operations.sql`.
 
 ## Reusable templates to maintain
@@ -22,8 +24,8 @@ Reusable operational templates for the physical and digital product divisions.
 12. Digital security and privacy review.
 13. Release notes and version manifest.
 14. Warranty, returns and recall record.
-15. JROC-AI Brand garment technical pack: `JROC_AI_APPAREL_TECH_PACK_TEMPLATE.md`.
-16. Apparel line operating specification: `JROC_AI_APPAREL_LINE.md`.
 15. Customer complaint and corrective-action record.
+16. JROC-AI Brand garment technical pack.
+17. JROC-AI Brand apparel line operating specification.
 
 All templates are controlled documents. Update their version and reviewer whenever the process changes.
