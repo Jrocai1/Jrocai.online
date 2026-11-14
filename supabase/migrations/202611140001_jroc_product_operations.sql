@@ -77,7 +77,7 @@ create table if not exists public.jroc_product_suppliers (
 create table if not exists public.jroc_product_documents (
   id uuid primary key default gen_random_uuid(),
   product_id uuid not null references public.jroc_products(id) on delete cascade,
-  document_type text not null check (document_type in ('user_manual','quick_start','specification','safety_warning','test_report','certificate','declaration','warranty','returns_policy','installation_guide','troubleshooting','maintenance','privacy_notice','license_terms','release_notes','software_bill_of_materials','security_review','other')),
+  document_type text not null check (document_type in ('user_manual','quick_start','specification','technical_pack','size_chart','measurement_specification','fabric_specification','fiber_content_declaration','care_label_artwork','brand_artwork_approval','sample_inspection','wash_test_report','colorfastness_report','safety_warning','test_report','certificate','declaration','warranty','returns_policy','installation_guide','troubleshooting','maintenance','privacy_notice','license_terms','release_notes','software_bill_of_materials','security_review','other')),
   title text not null,
   storage_path text,
   external_url text,
@@ -106,9 +106,27 @@ create table if not exists public.jroc_product_reviews (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.jroc_product_variants (
+  id uuid primary key default gen_random_uuid(),
+  product_id uuid not null references public.jroc_products(id) on delete cascade,
+  variant_sku text not null unique,
+  variant_label text not null,
+  size_label text,
+  color_name text,
+  color_code text,
+  barcode text unique,
+  variant_attributes jsonb not null default '{}'::jsonb,
+  status text not null default 'draft' check (status in ('draft','approved','active','retired')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(product_id, id),
+  unique(product_id, size_label, color_name)
+);
+
 create table if not exists public.jroc_inventory_lots (
   id uuid primary key default gen_random_uuid(),
   product_id uuid not null references public.jroc_products(id) on delete restrict,
+  variant_id uuid,
   supplier_id uuid references public.jroc_suppliers(id) on delete set null,
   lot_code text not null unique,
   supplier_batch_code text,
@@ -121,7 +139,8 @@ create table if not exists public.jroc_inventory_lots (
   inspection_status text not null default 'pending' check (inspection_status in ('pending','passed','failed','quarantined')),
   country_of_origin text,
   notes text not null default '',
-  check (quantity_available + quantity_reserved + quantity_quarantined <= quantity_received)
+  check (quantity_available + quantity_reserved + quantity_quarantined <= quantity_received),
+  foreign key (product_id, variant_id) references public.jroc_product_variants(product_id, id) on delete restrict
 );
 
 create table if not exists public.jroc_inventory_events (
@@ -159,6 +178,7 @@ create index if not exists jroc_products_division_idx on public.jroc_products(di
 create index if not exists jroc_product_suppliers_product_idx on public.jroc_product_suppliers(product_id, approval_status);
 create index if not exists jroc_product_documents_product_idx on public.jroc_product_documents(product_id, approval_status);
 create index if not exists jroc_product_reviews_product_idx on public.jroc_product_reviews(product_id, reviewed_at desc);
+create index if not exists jroc_product_variants_product_idx on public.jroc_product_variants(product_id, status);
 create index if not exists jroc_inventory_lots_product_idx on public.jroc_inventory_lots(product_id, received_at desc);
 create index if not exists jroc_inventory_events_lot_idx on public.jroc_inventory_events(lot_id, created_at desc);
 create index if not exists jroc_digital_releases_product_idx on public.jroc_digital_releases(product_id, release_status);
@@ -168,6 +188,7 @@ alter table public.jroc_suppliers enable row level security;
 alter table public.jroc_product_suppliers enable row level security;
 alter table public.jroc_product_documents enable row level security;
 alter table public.jroc_product_reviews enable row level security;
+alter table public.jroc_product_variants enable row level security;
 alter table public.jroc_inventory_lots enable row level security;
 alter table public.jroc_inventory_events enable row level security;
 alter table public.jroc_digital_releases enable row level security;
@@ -214,6 +235,21 @@ for all to authenticated
 using (public.jroc_has_workspace_role(array['owner','chairman','admin']))
 with check (public.jroc_has_workspace_role(array['owner','chairman','admin']));
 
+drop policy if exists "Public read approved product variants" on public.jroc_product_variants;
+create policy "Public read approved product variants" on public.jroc_product_variants
+for select to anon, authenticated
+using (status = 'active' and exists (
+  select 1 from public.jroc_products p where p.id = product_id and p.is_public
+    and p.lifecycle_status = 'published' and p.documentation_status = 'complete'
+    and p.compliance_status in ('approved','not_applicable') and p.quality_status = 'approved'
+));
+
+drop policy if exists "Product variants admin access" on public.jroc_product_variants;
+create policy "Product variants admin access" on public.jroc_product_variants
+for all to authenticated
+using (public.jroc_has_workspace_role(array['owner','chairman','admin']))
+with check (public.jroc_has_workspace_role(array['owner','chairman','admin']));
+
 drop policy if exists "Inventory lots admin access" on public.jroc_inventory_lots;
 create policy "Inventory lots admin access" on public.jroc_inventory_lots
 for all to authenticated
@@ -240,11 +276,11 @@ using (public.jroc_has_workspace_role(array['owner','chairman','admin']))
 with check (public.jroc_has_workspace_role(array['owner','chairman','admin']));
 
 revoke all on public.jroc_products, public.jroc_suppliers, public.jroc_product_suppliers,
-  public.jroc_product_documents, public.jroc_product_reviews, public.jroc_inventory_lots,
+  public.jroc_product_documents, public.jroc_product_reviews, public.jroc_product_variants, public.jroc_inventory_lots,
   public.jroc_inventory_events, public.jroc_digital_releases from anon, authenticated;
-grant select on public.jroc_products, public.jroc_product_documents to anon, authenticated;
+grant select on public.jroc_products, public.jroc_product_documents, public.jroc_product_variants to anon, authenticated;
 grant select, insert, update, delete on public.jroc_products, public.jroc_suppliers,
-  public.jroc_product_suppliers, public.jroc_product_documents, public.jroc_product_reviews,
+  public.jroc_product_suppliers, public.jroc_product_documents, public.jroc_product_reviews, public.jroc_product_variants,
   public.jroc_inventory_lots, public.jroc_inventory_events, public.jroc_digital_releases to authenticated;
 
 -- Seed only draft concepts. These are not live listings, supplier commitments or inventory.
