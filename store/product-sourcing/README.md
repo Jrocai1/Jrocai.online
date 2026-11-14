@@ -3,7 +3,7 @@
 **Status: research leads only — not sellable inventory.**  
 Research date: 2026-11-14.
 
-This register starts the product-sourcing pipeline with manufacturer-listed products in the requested off-grid power and e-mobility departments. A manufacturer's public retail price is not a J-ROC AI cost, wholesale quote, reseller authorization, inventory count, or margin.
+This register starts the physical-product sourcing pipeline with manufacturer-listed products in the requested off-grid power and e-mobility departments. The separate `digital-product-candidates.json` file records 12 existing J-ROC AI software product records found in Supabase; they remain private drafts, not active store listings. A manufacturer's public retail price is not a J-ROC AI cost, wholesale quote, reseller authorization, inventory count, or margin.
 
 ## Initial candidate groups
 
