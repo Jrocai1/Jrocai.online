@@ -8,6 +8,7 @@ This directory is the isolated retail storefront foundation. It does not replace
 - J-ROC AI-owned brand and catalog standards.
 - Department navigation and product search interface.
 - Catalog is intentionally empty until verified product records pass the release gate.
+- Manufacturer-sourced candidate register lives in `product-sourcing/candidate-inventory.json`; these are research leads, not sellable inventory.
 - No fake products, inventory, prices, ratings, checkout, or payment status.
 - Existing platform routes remain untouched.
 
