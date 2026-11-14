@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.0",
+  "source": "Supabase public.saas_products read-only query",
+  "inspected_on": "2026-11-14",
+  "status": "existing_internal_software_registry_not_published_store_inventory",
+  "sale_readiness": "not_verified",
+  "checkout_status": "disabled",
+  "active_subscription_plans": 0,
+  "products": [
+    {
+      "product_id": "5d2d57d7-074b-4cd4-b3c3-92649e13059e",
+      "slug": "ai-app-factory",
+      "name": "AI App Factory",
+      "description": "Application scaffolding and packaging workflows.",
+      "module_code": "JAAF",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "36044cf9-3c44-4d88-9c60-9c10d2175085",
+      "slug": "ai-factory",
+      "name": "AI Factory",
+      "description": "Template-driven software build and validation pipelines.",
+      "module_code": "JAF",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "52ebb5b8-3360-40c5-9a0a-82393ab261c4",
+      "slug": "ai-workers",
+      "name": "AI Workers",
+      "description": "Governed worker definitions and task execution.",
+      "module_code": "JAW",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "09ac54b5-fa04-4af7-95cd-739c5b325b70",
+      "slug": "chairman-office",
+      "name": "Chairman Office",
+      "description": "Private J-ROC AI platform control center.",
+      "module_code": "JCO",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "e7aebf6f-c8a2-478c-8431-309d27918aee",
+      "slug": "entertainment-studio",
+      "name": "Entertainment Studio",
+      "description": "Creative project and production workflows.",
+      "module_code": "JES",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "88bacce3-57cf-4d6a-961e-1f00aac68c54",
+      "slug": "ai-brain",
+      "name": "J-ROC AI Brain",
+      "description": "Agent planning, validation, and orchestration.",
+      "module_code": "JAIB",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "cbdce754-9152-4975-a6d4-030821f812ce",
+      "slug": "ai-cyber",
+      "name": "J-ROC AI Cyber",
+      "description": "Defensive diagnostics and security tooling.",
+      "module_code": "JAIC",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "1473c6c1-e44b-4de8-b348-4beb9488423c",
+      "slug": "ai-hub",
+      "name": "J-ROC AI Hub",
+      "description": "Shared runtime, platform shell, and governance services.",
+      "module_code": "JAH",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "518032a4-0467-41dc-8e56-46018b465f70",
+      "slug": "master-brand-kit",
+      "name": "Master Brand Kit",
+      "description": "Shared brand identity, assets, and design tokens.",
+      "module_code": "JMBK",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "8b2c2261-73ea-471a-ac8b-c7dd126ef35e",
+      "slug": "multi-model-llm",
+      "name": "Multi-Model LLM Gateway",
+      "description": "Owner-approved model routing and provider controls.",
+      "module_code": "JLM",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "1fea0ff6-8925-4d6a-bb7a-f55bccc638db",
+      "slug": "shared-platform-services",
+      "name": "Shared Platform Services",
+      "description": "Authentication, permissions, licensing, and audit services.",
+      "module_code": "JPS",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    },
+    {
+      "product_id": "07173033-3aad-434f-8a53-24c2cfb40630",
+      "slug": "universal-repair-pro",
+      "name": "Universal Repair Suite PRO",
+      "description": "Apple and Samsung repair-business workflow software.",
+      "module_code": "JAURSP",
+      "product_kind": "digital_software",
+      "current_registry_status": "draft",
+      "current_visibility": "private",
+      "store_status": "candidate_only_not_sellable",
+      "blockers": [
+        "working_release_artifact_and_version_not_verified_here",
+        "full_product_documentation_not_verified",
+        "support_and_update_policy_not_verified",
+        "pricing_and_tax_treatment_not_approved",
+        "active_checkout_and_payment_tests_not_enabled",
+        "Chairman_publication_approval_required"
+      ]
+    }
+  ]
+}
