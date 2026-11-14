@@ -8,7 +8,7 @@ Applied migration history: 7 migrations (workspace authentication, SaaS marketpl
 
 The public schema contains existing SaaS product, plan, subscription, entitlement, license, billing-event, customer-profile, workspace, and J-ROC AI model-control tables. Those existing tables are not being repurposed as physical store inventory or retail orders.
 
-No store-specific inventory, cart, order, supplier, or product-document tables were found in the inspected public schema.
+No store-specific inventory, cart, order, supplier, or product-document tables were found in the inspected public schema. The existing `saas_products` table contains 12 J-ROC AI software product records, all currently `draft` and `private`; `saas_plans` contains zero rows, so these are not currently purchasable store items.
 
 ## Proposed store entities
 
