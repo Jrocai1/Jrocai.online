@@ -100,16 +100,6 @@ create table if not exists public.store_product_supplier_links (
   updated_at timestamptz not null default now()
 );
 
-create table if not exists public.store_inventory_reservations (
-  id uuid primary key default gen_random_uuid(),
-  variant_id uuid not null references public.store_product_variants(id) on delete restrict,
-  order_id uuid references public.store_orders(id) on delete cascade,
-  quantity integer not null check (quantity > 0),
-  reservation_status text not null default 'held' check (reservation_status in ('held','committed','released','expired')),
-  expires_at timestamptz not null,
-  created_at timestamptz not null default now()
-);
-
 create table if not exists public.store_inventory (
   id uuid primary key default gen_random_uuid(),
   variant_id uuid not null references public.store_product_variants(id) on delete cascade,
@@ -190,6 +180,16 @@ create table if not exists public.store_orders (
   billing_address jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
+);
+
+create table if not exists public.store_inventory_reservations (
+  id uuid primary key default gen_random_uuid(),
+  variant_id uuid not null references public.store_product_variants(id) on delete restrict,
+  order_id uuid references public.store_orders(id) on delete cascade,
+  quantity integer not null check (quantity > 0),
+  reservation_status text not null default 'held' check (reservation_status in ('held','committed','released','expired')),
+  expires_at timestamptz not null,
+  created_at timestamptz not null default now()
 );
 
 create table if not exists public.store_payment_events (
