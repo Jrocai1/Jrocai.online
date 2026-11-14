@@ -6,10 +6,12 @@ This directory is the isolated retail storefront foundation. It does not replace
 - Public store shell: `/store/`
 - Light-mode-only design.
 - J-ROC AI-owned brand and catalog standards.
-- Department navigation and product search interface.
+- Department navigation, product search, and live published-catalog query through the existing Supabase publishable key and row-level security.
+- Customer cart page with account-scoped persistence, quantity changes, and item removal once the proposed store migration is applied.
 - Catalog is intentionally empty until verified product records pass the release gate.
 - Manufacturer-sourced candidate register lives in `product-sourcing/candidate-inventory.json`; these are research leads, not sellable inventory.
 - No fake products, inventory, prices, ratings, checkout, or payment status.
+- Checkout remains disabled; payment, tax, shipping calculation, guest checkout, and order fulfillment are not live.
 - Existing platform routes remain untouched.
 
 ## Canonical workforce
