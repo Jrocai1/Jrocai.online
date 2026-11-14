@@ -1,0 +1,3177 @@
+{
+  "schema_version": "1.0.0",
+  "product": "Jrocai.Online",
+  "workforce_name": "J-ROC AI Online Store Workforce",
+  "orchestrator": "J-Bot Store Operations Manager",
+  "source_registry": "J-ROC AI 500-Agent Master Registry",
+  "worker_count": 74,
+  "deployment_state": "definitions_only_not_connected_to_live_runtime",
+  "operating_principles": [
+    "Local-first and free-tier-first; no paid dependency without Chairman approval.",
+    "Workers receive least-privilege access scoped to assigned tasks.",
+    "Every consequential action records actor, input references, output, timestamp, and approval.",
+    "Workers may research, draft, classify, monitor, reconcile, and recommend within their assigned scope.",
+    "Publishing, payments, refunds, supplier commitments, purchase orders, live pricing changes, and external campaigns require explicit authorized approval.",
+    "No worker may invent inventory, testing, certifications, warranty coverage, manufacturer statements, or customer reviews."
+  ],
+  "departments": [
+    {
+      "id": "executive_operations",
+      "worker_count": 5,
+      "worker_ids": [
+        "store-operations-director",
+        "task-dispatcher",
+        "workforce-supervisor",
+        "chairman-reporting",
+        "incident-coordinator"
+      ]
+    },
+    {
+      "id": "product_research_and_catalog",
+      "worker_count": 12,
+      "worker_ids": [
+        "product-discovery",
+        "market-demand-research",
+        "competitor-analysis",
+        "manufacturer-verification",
+        "supplier-due-diligence",
+        "specification-research",
+        "documentation-collection",
+        "documentation-quality",
+        "product-content-writer",
+        "product-taxonomy",
+        "product-compatibility",
+        "listing-quality-gate"
+      ]
+    },
+    {
+      "id": "inventory_and_procurement",
+      "worker_count": 12,
+      "worker_ids": [
+        "inventory-controller",
+        "stock-monitor",
+        "demand-forecasting",
+        "replenishment-planner",
+        "purchase-order-preparer",
+        "warehouse-coordinator",
+        "serial-number-register",
+        "barcode-manager",
+        "used-product-grader",
+        "product-test-records",
+        "refurbishment-tracker",
+        "inventory-auditor"
+      ]
+    },
+    {
+      "id": "pricing_and_merchandising",
+      "worker_count": 7,
+      "worker_ids": [
+        "pricing-analyst",
+        "margin-guard",
+        "promotion-planner",
+        "catalog-merchandiser",
+        "search-relevance",
+        "recommendation-curator",
+        "product-feed-manager"
+      ]
+    },
+    {
+      "id": "orders_payments_and_finance",
+      "worker_count": 11,
+      "worker_ids": [
+        "cart-health-monitor",
+        "checkout-monitor",
+        "order-verification",
+        "order-orchestrator",
+        "payment-reconciliation",
+        "refund-case-preparer",
+        "chargeback-evidence",
+        "tax-validation",
+        "invoice-manager",
+        "revenue-analyst",
+        "fraud-triage"
+      ]
+    },
+    {
+      "id": "shipping_returns_and_suppliers",
+      "worker_count": 9,
+      "worker_ids": [
+        "shipping-coordinator",
+        "shipping-rate-review",
+        "label-preparation",
+        "shipment-tracker",
+        "delivery-exception",
+        "dropship-coordinator",
+        "supplier-scorecard",
+        "returns-intake",
+        "warranty-case-manager"
+      ]
+    },
+    {
+      "id": "customer_and_marketing",
+      "worker_count": 10,
+      "worker_ids": [
+        "customer-service",
+        "technical-product-support",
+        "customer-escalation",
+        "knowledge-base-curator",
+        "customer-feedback-analyst",
+        "email-campaign-drafter",
+        "social-content-drafter",
+        "search-optimization",
+        "campaign-analyst",
+        "loyalty-program-operator"
+      ]
+    },
+    {
+      "id": "security_compliance_and_quality",
+      "worker_count": 8,
+      "worker_ids": [
+        "privacy-request-coordinator",
+        "security-monitor",
+        "access-reviewer",
+        "policy-compliance",
+        "consumer-disclosure-review",
+        "quality-assurance",
+        "release-readiness",
+        "backup-recovery"
+      ]
+    }
+  ],
+  "workers": [
+    {
+      "id": "store-operations-director",
+      "name": "J-ROC AI Store Operations Director Worker",
+      "department": "executive_operations",
+      "mission": "Coordinates store workflows, priorities, and department handoffs.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "task-dispatcher",
+      "name": "J-ROC AI Task Dispatcher Worker",
+      "department": "executive_operations",
+      "mission": "Classifies incoming work, assigns the correct specialist, and tracks dependencies.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "workforce-supervisor",
+      "name": "J-ROC AI Workforce Supervisor Worker",
+      "department": "executive_operations",
+      "mission": "Monitors worker health, queues, retries, and service-level targets.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "chairman-reporting",
+      "name": "J-ROC AI Chairman Reporting Worker",
+      "department": "executive_operations",
+      "mission": "Produces daily and exception-based executive reports.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "incident-coordinator",
+      "name": "J-ROC AI Incident Coordinator Worker",
+      "department": "executive_operations",
+      "mission": "Coordinates incidents, containment, owner assignment, and resolution evidence.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-discovery",
+      "name": "J-ROC AI Product Discovery Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Finds candidate products from permitted manufacturer and supplier sources.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "market-demand-research",
+      "name": "J-ROC AI Market Demand Research Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Assesses demand signals and market fit without fabricating evidence.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "competitor-analysis",
+      "name": "J-ROC AI Competitor Analysis Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Compares public product positioning, features, and observed pricing.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "manufacturer-verification",
+      "name": "J-ROC AI Manufacturer Verification Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Validates manufacturer identity and official product references.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "supplier-due-diligence",
+      "name": "J-ROC AI Supplier Due Diligence Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Checks supplier legitimacy, terms, provenance, and risk.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "specification-research",
+      "name": "J-ROC AI Specification Research Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Collects manufacturer-backed technical specifications.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "documentation-collection",
+      "name": "J-ROC AI Documentation Collection Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Finds official manuals, safety sheets, setup guides, and support references.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "documentation-quality",
+      "name": "J-ROC AI Documentation Quality Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Checks that required product documentation is complete, current, and for the exact model.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-content-writer",
+      "name": "J-ROC AI Product Content Writer Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Drafts accurate product titles, descriptions, features, and instructions from verified sources.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-taxonomy",
+      "name": "J-ROC AI Product Taxonomy Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Classifies products into the correct store department and category.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-compatibility",
+      "name": "J-ROC AI Product Compatibility Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Checks model, part, voltage, connector, and accessory compatibility from reliable evidence.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "listing-quality-gate",
+      "name": "J-ROC AI Listing Quality Gate Worker",
+      "department": "product_research_and_catalog",
+      "mission": "Blocks incomplete, misleading, duplicate, or unsupported product listings.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "inventory-controller",
+      "name": "J-ROC AI Inventory Controller Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Maintains inventory records and availability accuracy.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "stock-monitor",
+      "name": "J-ROC AI Stock Monitor Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Detects low stock, overselling risk, and inventory discrepancies.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "demand-forecasting",
+      "name": "J-ROC AI Demand Forecasting Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Forecasts demand using available sales and stock history.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "replenishment-planner",
+      "name": "J-ROC AI Replenishment Planner Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Recommends reorder quantities and timing.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "purchase-order-preparer",
+      "name": "J-ROC AI Purchase Order Preparer Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Drafts purchase orders for human approval; cannot submit or commit funds.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "warehouse-coordinator",
+      "name": "J-ROC AI Warehouse Coordinator Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Tracks warehouse locations, receipts, picks, and transfers.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "serial-number-register",
+      "name": "J-ROC AI Serial Number Register Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Tracks serial numbers and device-level traceability.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "barcode-manager",
+      "name": "J-ROC AI Barcode Manager Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Maintains product barcode and identifier records.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "used-product-grader",
+      "name": "J-ROC AI Used Product Grader Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Records condition grades, defects, test evidence, and actual product photos.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-test-records",
+      "name": "J-ROC AI Product Test Records Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Maintains test procedures, results, tester identity, and timestamps.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "refurbishment-tracker",
+      "name": "J-ROC AI Refurbishment Tracker Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Tracks authorized refurbishment steps and replacement parts.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "inventory-auditor",
+      "name": "J-ROC AI Inventory Auditor Worker",
+      "department": "inventory_and_procurement",
+      "mission": "Reconciles system stock against verified physical and supplier records.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "pricing-analyst",
+      "name": "J-ROC AI Pricing Analyst Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Calculates recommended prices using cost, fees, shipping, taxes, and market evidence.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "margin-guard",
+      "name": "J-ROC AI Margin Guard Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Flags products below configured minimum contribution margin.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "promotion-planner",
+      "name": "J-ROC AI Promotion Planner Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Drafts promotion proposals within approved discount limits.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "catalog-merchandiser",
+      "name": "J-ROC AI Catalog Merchandiser Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Organizes category pages, featured products, and product groupings.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "search-relevance",
+      "name": "J-ROC AI Search Relevance Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Improves product search terms, synonyms, filters, and ranking quality.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "recommendation-curator",
+      "name": "J-ROC AI Recommendation Curator Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Suggests related products based on verified compatibility and relevance.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "product-feed-manager",
+      "name": "J-ROC AI Product Feed Manager Worker",
+      "department": "pricing_and_merchandising",
+      "mission": "Prepares accurate product feeds for approved sales and discovery channels.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "cart-health-monitor",
+      "name": "J-ROC AI Cart Health Monitor Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Monitors cart errors, abandoned sessions, and checkout handoff failures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "checkout-monitor",
+      "name": "J-ROC AI Checkout Monitor Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Detects checkout failures and reports reproducible diagnostics.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "order-verification",
+      "name": "J-ROC AI Order Verification Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Checks order completeness, stock, address validation results, and risk flags.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "order-orchestrator",
+      "name": "J-ROC AI Order Orchestrator Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Coordinates approved order state transitions and fulfillment handoffs.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "payment-reconciliation",
+      "name": "J-ROC AI Payment Reconciliation Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Matches payment processor events to orders and settlement records.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "refund-case-preparer",
+      "name": "J-ROC AI Refund Case Preparer Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Collects evidence and prepares refund recommendations; cannot issue refunds.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "chargeback-evidence",
+      "name": "J-ROC AI Chargeback Evidence Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Assembles order, delivery, and customer-service evidence for review.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "tax-validation",
+      "name": "J-ROC AI Tax Validation Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Checks tax calculation responses and flags jurisdiction or configuration gaps.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "invoice-manager",
+      "name": "J-ROC AI Invoice Manager Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Generates and checks order invoices and credit notes.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "revenue-analyst",
+      "name": "J-ROC AI Revenue Analyst Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Reports gross sales, net sales, fees, refunds, and contribution.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "fraud-triage",
+      "name": "J-ROC AI Fraud Triage Worker",
+      "department": "orders_payments_and_finance",
+      "mission": "Flags suspicious patterns for human review without automatically accusing customers.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "shipping-coordinator",
+      "name": "J-ROC AI Shipping Coordinator Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Coordinates shipping methods, fulfillment readiness, and carrier handoffs.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "shipping-rate-review",
+      "name": "J-ROC AI Shipping Rate Review Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Compares available carrier rates and service constraints.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "label-preparation",
+      "name": "J-ROC AI Label Preparation Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Prepares shipping label data for authorized purchase and printing.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "shipment-tracker",
+      "name": "J-ROC AI Shipment Tracker Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Monitors carrier events and late or stalled shipments.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "delivery-exception",
+      "name": "J-ROC AI Delivery Exception Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Investigates failed, delayed, damaged, or misrouted deliveries.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "dropship-coordinator",
+      "name": "J-ROC AI Dropship Coordinator Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Coordinates orders with approved suppliers and enforces dropship disclosures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "supplier-scorecard",
+      "name": "J-ROC AI Supplier Scorecard Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Measures supplier accuracy, delivery, defect, and response performance.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "returns-intake",
+      "name": "J-ROC AI Returns Intake Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Collects return reasons, eligibility evidence, and condition details.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "warranty-case-manager",
+      "name": "J-ROC AI Warranty Case Manager Worker",
+      "department": "shipping_returns_and_suppliers",
+      "mission": "Tracks warranty terms, claims, and manufacturer case status.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "customer-service",
+      "name": "J-ROC AI Customer Service Worker",
+      "department": "customer_and_marketing",
+      "mission": "Answers store questions using approved policies and verified order data.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "technical-product-support",
+      "name": "J-ROC AI Technical Product Support Worker",
+      "department": "customer_and_marketing",
+      "mission": "Provides model-specific setup and troubleshooting from approved documentation.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "customer-escalation",
+      "name": "J-ROC AI Customer Escalation Worker",
+      "department": "customer_and_marketing",
+      "mission": "Routes complaints, safety concerns, and unresolved cases to human staff.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "knowledge-base-curator",
+      "name": "J-ROC AI Knowledge Base Curator Worker",
+      "department": "customer_and_marketing",
+      "mission": "Maintains accurate help articles, FAQs, and support procedures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "customer-feedback-analyst",
+      "name": "J-ROC AI Customer Feedback Analyst Worker",
+      "department": "customer_and_marketing",
+      "mission": "Categorizes customer feedback and identifies recurring issues.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "email-campaign-drafter",
+      "name": "J-ROC AI Email Campaign Drafter Worker",
+      "department": "customer_and_marketing",
+      "mission": "Drafts permission-based customer email campaigns for approval.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "social-content-drafter",
+      "name": "J-ROC AI Social Content Drafter Worker",
+      "department": "customer_and_marketing",
+      "mission": "Drafts brand-aligned social content for approval.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "search-optimization",
+      "name": "J-ROC AI Search Optimization Worker",
+      "department": "customer_and_marketing",
+      "mission": "Prepares search metadata and content improvements.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "campaign-analyst",
+      "name": "J-ROC AI Campaign Analyst Worker",
+      "department": "customer_and_marketing",
+      "mission": "Measures approved campaign performance and reports attribution limits.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "loyalty-program-operator",
+      "name": "J-ROC AI Loyalty Program Operator Worker",
+      "department": "customer_and_marketing",
+      "mission": "Maintains points and rewards records under approved program rules.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "privacy-request-coordinator",
+      "name": "J-ROC AI Privacy Request Coordinator Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Routes access, correction, deletion, and consent requests under approved procedures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "security-monitor",
+      "name": "J-ROC AI Security Monitor Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Monitors security alerts and coordinates response with authorized personnel.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "access-reviewer",
+      "name": "J-ROC AI Access Reviewer Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Reviews worker and staff permissions for least-privilege alignment.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "policy-compliance",
+      "name": "J-ROC AI Policy Compliance Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Checks product, store, advertising, and customer policy requirements.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "consumer-disclosure-review",
+      "name": "J-ROC AI Consumer Disclosure Review Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Checks pricing, shipping, return, warranty, and condition disclosures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "quality-assurance",
+      "name": "J-ROC AI Quality Assurance Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Runs defined acceptance checks across store workflows.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "release-readiness",
+      "name": "J-ROC AI Release Readiness Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Verifies test evidence, approvals, rollback readiness, and deployment gates.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    },
+    {
+      "id": "backup-recovery",
+      "name": "J-ROC AI Backup and Recovery Worker",
+      "department": "security_compliance_and_quality",
+      "mission": "Monitors backup evidence and prepares recovery procedures.",
+      "status": "registered_not_deployed",
+      "execution_mode": "approval_gated",
+      "inputs": [
+        "authorized_store_records",
+        "verified_source_data",
+        "assigned_task_context"
+      ],
+      "outputs": [
+        "structured_result",
+        "evidence_references",
+        "confidence_and_limitations",
+        "audit_event"
+      ],
+      "permissions": [
+        "read_assigned_scope",
+        "write_task_workspace",
+        "request_human_approval"
+      ],
+      "prohibited_actions": [
+        "spend_money",
+        "publish_products",
+        "change_live_prices",
+        "issue_refunds",
+        "place_purchase_orders",
+        "change_policies",
+        "send_unapproved_campaigns",
+        "invent_product_facts_or_inventory"
+      ],
+      "escalation_conditions": [
+        "missing_or_conflicting_evidence",
+        "customer_safety_issue",
+        "suspected_fraud_or_security_incident",
+        "financial_commitment_required",
+        "policy_or_compliance_uncertainty"
+      ]
+    }
+  ]
+}
