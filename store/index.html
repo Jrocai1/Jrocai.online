@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="The official J-ROC AI Store. Explore J-ROC AI products and verified technology departments.">
+<title>J-ROC AI Store | Official Store</title>
+<style>
+:root{color-scheme:light;--blue:#00B3FF;--deep:#0071FF;--ink:#0B0F14;--muted:#5b6572;--line:#e3e8ef;--soft:#f5f8fb;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--white);color:var(--ink);font:16px/1.55 Roboto,Arial,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{width:min(1240px,calc(100% - 36px));margin:auto}.topline{background:var(--ink);color:#fff;font-size:12px;padding:8px 0}.topline .shell{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.headrow{display:flex;align-items:center;gap:22px;min-height:76px}.brand{font-weight:900;font-size:22px;letter-spacing:.03em;white-space:nowrap}.brand span{color:var(--blue)}.search{display:flex;flex:1;min-width:180px}.search input{width:100%;border:2px solid var(--blue);border-radius:8px 0 0 8px;padding:12px 14px;outline-offset:2px}.search button,.primary{border:0;background:var(--deep);color:#fff;padding:12px 18px;font-weight:700;border-radius:0 8px 8px 0;cursor:pointer}.headlink{font-size:14px;font-weight:700;white-space:nowrap}.cart{border:1px solid var(--line);padding:10px 13px;border-radius:8px}.departments{border-bottom:1px solid var(--line);background:#fff}.deptnav{display:flex;gap:22px;overflow:auto;padding:12px 0;white-space:nowrap;font-size:13px;font-weight:700}.deptnav a:hover,.textlink{color:var(--deep)}.hero{background:linear-gradient(105deg,#f2faff,#fff 70%);padding:54px 0 48px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--deep);font-size:11px;font-weight:800}.hero h1{font-family:Montserrat,Arial,sans-serif;font-size:clamp(34px,5vw,58px);line-height:1.06;max-width:760px;margin:12px 0}.hero p{color:var(--muted);font-size:18px;max-width:680px;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.primary,.secondary{display:inline-block;border-radius:8px;padding:12px 18px;font-weight:800}.secondary{border:1px solid #cbd8e5;color:var(--ink);background:#fff}.section{padding:38px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}.section h2{font:700 clamp(24px,3vw,32px)/1.2 Montserrat,Arial,sans-serif;margin:6px 0}.section-head p{color:var(--muted);max-width:540px;margin:0}.deptgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.dept{border:1px solid var(--line);border-radius:12px;padding:18px;min-height:136px;background:#fff;transition:.15s}.dept:hover{border-color:var(--blue);box-shadow:0 5px 18px #0b0f1410;transform:translateY(-2px)}.dept strong{display:block;font-size:15px;margin:8px 0 4px}.dept small{color:var(--muted)}.depticon{width:38px;height:38px;border-radius:10px;background:#e9f8ff;color:#0071ff;display:grid;place-items:center;font-weight:900}.catalogbar{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px}.catalogbar input,.catalogbar select{border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:#fff}.catalogbar input{flex:1;min-width:220px}.empty{border:1px dashed #bdc9d5;background:var(--soft);padding:30px;border-radius:12px;text-align:center}.empty strong{display:block;font-size:18px;margin-bottom:6px}.empty p{margin:0;color:var(--muted)}.trustgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.trust{border:1px solid var(--line);border-radius:12px;padding:20px}.trust strong{display:block;margin-bottom:5px}.trust p{color:var(--muted);font-size:14px;margin:0}.footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}.footerrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.notice{font-size:13px;color:var(--muted);margin-top:14px}.productgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}.product-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}.product-body{padding:16px;display:flex;flex-direction:column;flex:1}.product-media{height:180px;background:linear-gradient(135deg,#eaf7ff,#f5f8fb);display:grid;place-items:center;color:#607080;font-weight:800}.product-media img{width:100%;height:100%;object-fit:contain}.product-meta{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:11px;border:1px solid var(--line);border-radius:99px;padding:3px 8px;color:var(--muted)}.product-body h3{margin:10px 0 5px;font-size:17px}.product-body p{margin:0;color:var(--muted);font-size:13px}.product-price{font-weight:900;font-size:19px;margin:12px 0}.product-action{margin-top:auto;border:0;border-radius:8px;padding:10px 12px;background:var(--deep);color:white;font-weight:800;cursor:pointer}.product-action:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:900px){.deptgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.productgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.headlink{display:none}}@media(max-width:600px){.headrow{gap:10px;flex-wrap:wrap;padding:12px 0}.brand{width:100%}.search{order:2;flex-basis:100%}.deptgrid,.trustgrid,.productgrid{grid-template-columns:1fr}.hero{padding:38px 0}.section-head{display:block}.section-head p{margin-top:8px}.topline .shell{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="topline"><div class="shell"><span>Official J-ROC AI Store</span><span>J-ROC AI owned brand · No outside marketplace sellers</span></div></div>
+<header class="header">
+ <div class="shell headrow">
+  <a class="brand" href="/store/" aria-label="J-ROC AI Store home">J-ROC <span>AI</span> STORE</a>
+  <form class="search" id="searchForm" role="search"><input id="searchInput" type="search" placeholder="Search products and departments" aria-label="Search products and departments"><button type="submit">Search</button></form>
+  <a class="headlink" href="#departments">Departments</a>
+  <a class="headlink" href="#catalog">Shop products</a>
+  <a class="headlink" href="#policies">Store information</a>
+  <a class="cart" href="/store/cart/" aria-label="Shopping cart">Cart <b id="cartCount">0</b></a>
+ </div>
+ <div class="departments"><nav class="shell deptnav" aria-label="Store departments">
+  <a href="#smart-technology">Smart Technology</a><a href="#computers-electronics">Computers & Electronics</a><a href="#mobile-technology">Mobile</a><a href="#e-mobility">E-Mobility</a><a href="#survival-preparedness">Survival & Preparedness</a><a href="#bunkers-shelters">Bunkers & Shelters</a><a href="#off-grid-living">Off-Grid Living</a><a href="#jroc-ai-products">J-ROC AI Products</a>
+ </nav></div>
+</header>
+<main>
+<section class="hero"><div class="shell"><div class="eyebrow">The official J-ROC AI Store</div><h1>Technology, tools, and systems built around real-world needs.</h1><p>Explore J-ROC AI products across technology, mobility, preparedness, off-grid living, and professional tools. Every published product must meet our documentation and verification standards.</p><div class="hero-actions"><a class="primary" href="#departments">Explore departments</a><a class="secondary" href="#catalog">Browse verified inventory</a></div></div></section>
+<section class="section" id="departments"><div class="shell"><div class="section-head"><div><div class="eyebrow">Shop by department</div><h2>Explore all departments</h2></div><p>Department pages are structured for expansion. Product listings appear only after verification and Chairman approval.</p></div><div class="deptgrid" id="departmentGrid">
+<a class="dept" id="smart-technology" href="#catalog" data-department="Smart Technology"><span class="depticon">ST</span><strong>Smart Technology</strong><small>Connected devices, networking, automation</small></a>
+<a class="dept" id="computers-electronics" href="#catalog" data-department="Computers and Electronics"><span class="depticon">CE</span><strong>Computers & Electronics</strong><small>Computers, components, displays, storage</small></a>
+<a class="dept" id="mobile-technology" href="#catalog" data-department="Mobile Technology"><span class="depticon">MB</span><strong>Mobile Technology</strong><small>Phones, tablets, accessories, repair tools</small></a>
+<a class="dept" id="e-mobility" href="#catalog" data-department="E-Mobility"><span class="depticon">EM</span><strong>E-Mobility</strong><small>Controllers, displays, parts, diagnostics</small></a>
+<a class="dept" id="survival-preparedness" href="#catalog" data-department="Survival and Emergency Preparedness"><span class="depticon">SP</span><strong>Survival & Emergency Preparedness</strong><small>Water, power, emergency equipment</small></a>
+<a class="dept" id="bunkers-shelters" href="#catalog" data-department="Bunkers and Shelter Systems"><span class="depticon">BS</span><strong>Bunkers & Shelter Systems</strong><small>Shelters, ventilation, support systems</small></a>
+<a class="dept" id="off-grid-living" href="#catalog" data-department="Off-Grid Living"><span class="depticon">OG</span><strong>Off-Grid Living</strong><small>Solar, energy storage, water systems</small></a>
+<a class="dept" href="#catalog" data-department="Tools and Equipment"><span class="depticon">TE</span><strong>Tools & Equipment</strong><small>Professional, electrical, diagnostic tools</small></a>
+<a class="dept" href="#catalog" data-department="Home and Outdoor"><span class="depticon">HO</span><strong>Home & Outdoor</strong><small>Home improvement, camping, recreation</small></a>
+<a class="dept" id="jroc-ai-products" href="#catalog" data-department="J-ROC AI Products"><span class="depticon">JR</span><strong>J-ROC AI Products</strong><small>Software, applications, digital products</small></a>
+<a class="dept" href="#catalog" data-department="Certified Pre-Owned"><span class="depticon">CP</span><strong>Certified Pre-Owned</strong><small>Used items, individually tested and graded</small></a>
+<a class="dept" href="#catalog" data-department="Approved Supplier Products"><span class="depticon">AS</span><strong>Approved Supplier Products</strong><small>Clearly disclosed supplier fulfillment</small></a>
+</div></div></section>
+<section class="section" id="catalog"><div class="shell"><div class="section-head"><div><div class="eyebrow">Verified catalog</div><h2>Shop products</h2></div><p>Only products with verified specifications, documentation, fulfillment details, and required approvals may appear here.</p></div><div class="catalogbar"><input id="catalogSearch" type="search" placeholder="Search the verified catalog" aria-label="Search verified catalog"><select id="departmentFilter" aria-label="Filter by department"><option value="">All departments</option></select></div><div class="empty" id="catalogState"><strong>Inventory is being prepared</strong><p>No verified products have been published yet. We will not display invented listings, prices, stock counts, or reviews.</p></div><div class="productgrid" id="productGrid" aria-live="polite"></div><div class="notice" id="catalogNotice">Catalog status: awaiting approved product records.</div></div></section>
+<section class="section" id="policies"><div class="shell"><div class="section-head"><div><div class="eyebrow">Store standards</div><h2>What every listing must include</h2></div></div><div class="trustgrid"><article class="trust"><strong>Complete product documentation</strong><p>Specifications, manuals, setup, operation, maintenance, troubleshooting, and safety information where applicable.</p></article><article class="trust"><strong>Verified inventory and suppliers</strong><p>Owned inventory and approved supplier fulfillment remain separate and accurately disclosed.</p></article><article class="trust"><strong>Honest condition and warranty terms</strong><p>Used products require item-specific photographs, test records, condition grading, defect disclosures, and clear terms.</p></article></div></div></section>
+</main>
+<footer class="footer"><div class="shell footerrow"><span>© <span id="year"></span> J-ROC AI. All rights reserved.</span><span>Official J-ROC AI Store</span><span><a href="/">J-ROC AI Platform</a> · <a href="https://github.com/Jrocai1/Jrocai.online">Source repository</a></span></div></footer>
+<script type="module">
+const SUPABASE_URL="https://dfgiqvjepytgvjyxszqe.supabase.co";
+const SUPABASE_KEY="sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
+const {createClient}=await import("https://esm.sh/@supabase/supabase-js@2");
+const sb=createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+const $=s=>document.querySelector(s), filter=$("#departmentFilter");
+let catalog=[];
+const initial=[...document.querySelectorAll("[data-department]")].map(x=>x.dataset.department);
+[...new Set(initial)].forEach(name=>{const o=document.createElement("option");o.value=name;o.textContent=name;filter.appendChild(o)});
+function money(cents,currency){if(!Number.isInteger(cents))return "Price unavailable";return new Intl.NumberFormat("en-US",{style:"currency",currency:(currency||"usd").toUpperCase()}).format(cents/100)}
+function state(title,description){$("#catalogState").hidden=false;$("#catalogState strong").textContent=title;$("#catalogState p").textContent=description}
+function draw(){
+ const q=$("#catalogSearch").value.trim().toLowerCase(),d=filter.value;
+ const rows=catalog.filter(p=>(!d||p.department===d)&&(!q||[p.name,p.short_description,p.description,p.department,p.manufacturer,p.model_number].join(" ").toLowerCase().includes(q)));
+ const grid=$("#productGrid");grid.replaceChildren();
+ if(!rows.length){state(catalog.length?"No matching products":"Inventory is being prepared",catalog.length?"Try another search or department.":"No verified products have been published yet. We will not display invented listings, prices, stock counts, or reviews.");return}
+ $("#catalogState").hidden=true;
+ rows.forEach(p=>{
+  const card=document.createElement("article");card.className="product-card";
+  const media=document.createElement("div");media.className="product-media";
+  const first=Array.isArray(p.media)?p.media[0]:null;
+  if(first&&first.url&&String(first.url).startsWith("https://")){const img=document.createElement("img");img.src=first.url;img.alt=first.alt||p.name;img.loading="lazy";media.appendChild(img)}else media.textContent="J-ROC AI VERIFIED PRODUCT";
+  const body=document.createElement("div");body.className="product-body";
+  const meta=document.createElement("div");meta.className="product-meta";
+  [p.department,p.condition_type==="certified_preowned"?"Certified Pre-Owned":p.product_kind].filter(Boolean).forEach(v=>{const t=document.createElement("span");t.className="tag";t.textContent=v;meta.appendChild(t)});
+  const title=document.createElement("h3");title.textContent=p.name;
+  const desc=document.createElement("p");desc.textContent=p.short_description||p.description||"";
+  const price=document.createElement("div");price.className="product-price";price.textContent=money(p.price_cents,p.currency);
+  const docs=document.createElement("p");docs.textContent=p.documentation_complete?"Documentation verified":"Documentation not verified";docs.className="statusline";
+  const btn=document.createElement("button");btn.className="product-action";btn.textContent="Add to cart";btn.disabled=!(p.store_product_variants||[]).some(v=>v.active);
+  btn.onclick=()=>addToCart((p.store_product_variants||[]).find(v=>v.active));
+  body.append(meta,title,desc,price,docs,btn);card.append(media,body);grid.appendChild(card);
+ });
+}
+async function addToCart(v){
+ if(!v)return;
+ const {data:{session}}=await sb.auth.getSession();
+ if(!session){location.href="/login/?returnTo=%2Fstore%2F";return}
+ try{
+  let result=await sb.from("store_carts").select("id").eq("user_id",session.user.id).eq("status","active").limit(1).maybeSingle();
+  if(result.error)throw result.error;
+  let cart=result.data;
+  if(!cart){result=await sb.from("store_carts").insert({user_id:session.user.id}).select("id").single();if(result.error)throw result.error;cart=result.data}
+  result=await sb.from("store_cart_items").select("id,quantity").eq("cart_id",cart.id).eq("variant_id",v.id).maybeSingle();
+  if(result.error)throw result.error;
+  if(result.data){const r=await sb.from("store_cart_items").update({quantity:Math.min(99,result.data.quantity+1)}).eq("id",result.data.id);if(r.error)throw r.error}
+  else{const r=await sb.from("store_cart_items").insert({cart_id:cart.id,variant_id:v.id,quantity:1});if(r.error)throw r.error}
+  const count=await sb.from("store_cart_items").select("quantity").eq("cart_id",cart.id);if(count.error)throw count.error;
+  $("#cartCount").textContent=(count.data||[]).reduce((n,x)=>n+x.quantity,0);
+  $("#catalogNotice").textContent="Added to your saved cart. Checkout is not enabled yet.";
+ }catch(e){$("#catalogNotice").textContent="Cart unavailable until the store database migration is reviewed and applied."}
+}
+async function load(){
+ try{
+  const depts=await sb.from("store_departments").select("id,name,slug,sort_order").eq("active",true).order("sort_order").order("name");if(depts.error)throw depts.error;
+  const result=await sb.from("store_products").select("id,slug,name,short_description,description,manufacturer,model_number,product_kind,condition_type,currency,price_cents,media,documentation_complete,department_id,store_product_variants(id,sku,variant_name,price_cents,active),store_departments(name)").eq("publication_status","published").order("name");if(result.error)throw result.error;
+  catalog=(result.data||[]).map(p=>({...p,department:p.store_departments?.name||"Other",price_cents:p.price_cents??p.store_product_variants?.find(v=>v.active)?.price_cents??null}));
+  const known=new Set([...filter.options].map(o=>o.value));
+  (depts.data||[]).forEach(d=>{if(!known.has(d.name)){const o=document.createElement("option");o.value=d.name;o.textContent=d.name;filter.appendChild(o)}});
+  draw();$("#catalogNotice").textContent="Catalog connected. Only approved, published products are displayed.";
+  const {data:{session}}=await sb.auth.getSession();
+  if(session){const c=await sb.from("store_carts").select("id").eq("user_id",session.user.id).eq("status","active").limit(1).maybeSingle();if(c.data){const items=await sb.from("store_cart_items").select("quantity").eq("cart_id",c.data.id);$("#cartCount").textContent=(items.data||[]).reduce((n,x)=>n+x.quantity,0)}}
+ }catch(e){catalog=[];draw();$("#catalogNotice").textContent="Catalog not connected yet. No product listings are being fabricated."}
+}
+$("#catalogSearch").addEventListener("input",draw);filter.addEventListener("change",draw);
+$("#searchForm").addEventListener("submit",e=>{e.preventDefault();$("#catalogSearch").value=$("#searchInput").value;draw();$("#catalog").scrollIntoView({behavior:"smooth"})});
+document.querySelectorAll("[data-department]").forEach(a=>a.addEventListener("click",()=>{filter.value=a.dataset.department;draw()}));
+$("#year").textContent=new Date().getFullYear();load();
+</script>
+</body>
+</html>

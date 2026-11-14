@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "publication_policy": "chairman_approval_required",
+  "inventory_policy": {
+    "outside_marketplace_sellers": false,
+    "supplier_fulfillment_requires_approved_supplier": true,
+    "preowned_requires_item_specific_test_evidence": true
+  },
+  "products": []
+}

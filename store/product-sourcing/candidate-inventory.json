@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-11-14",
+  "status": "sourcing_candidates_only_not_sellable_inventory",
+  "policy": {
+    "publishable": false,
+    "supplier_relationship_verified": false,
+    "wholesale_cost_verified": false,
+    "stock_verified": false,
+    "documentation_match_verified": false,
+    "chairman_approval_required": true,
+    "note": "Manufacturer retail listings are research leads only. They do not establish J-ROC AI stock, reseller authorization, wholesale pricing, margin, or fulfillment capability."
+  },
+  "candidates": [
+    {
+      "candidate_id": "BLUETTI-ELITE-100-V2",
+      "manufacturer": "BLUETTI",
+      "model": "Elite 100 V2",
+      "department": "Off-Grid Living",
+      "category": "Portable Power Stations",
+      "manufacturer_listed_retail_price_usd": 499,
+      "public_specs": "1,800 W output; 1,024 Wh LiFePO4 battery",
+      "source_url": "https://www.bluettipower.com/pages/portable-power-station",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "BLUETTI-ELITE-200-V2",
+      "manufacturer": "BLUETTI",
+      "model": "Elite 200 V2",
+      "department": "Off-Grid Living",
+      "category": "Portable Power Stations",
+      "manufacturer_listed_retail_price_usd": 899,
+      "public_specs": "2,600 W output; 2,073.6 Wh LiFePO4 battery",
+      "source_url": "https://www.bluettipower.com/pages/portable-power-station",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "BLUETTI-APEX-200",
+      "manufacturer": "BLUETTI",
+      "model": "Apex 200",
+      "department": "Off-Grid Living",
+      "category": "Portable Power Stations",
+      "manufacturer_listed_retail_price_usd": 1099,
+      "public_specs": "2,560 Wh capacity; up to 3,600 W; LiFePO4",
+      "source_url": "https://www.bluettipower.com/collections/power-stations",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "BLUETTI-ELITE-300",
+      "manufacturer": "BLUETTI",
+      "model": "Elite 300",
+      "department": "Off-Grid Living",
+      "category": "Portable Power Stations",
+      "manufacturer_listed_retail_price_usd": 1199,
+      "public_specs": "2,400 W output; 3,014 Wh LiFePO4",
+      "source_url": "https://www.bluettipower.com/pages/portable-power-station",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "BLUETTI-APEX-300",
+      "manufacturer": "BLUETTI",
+      "model": "Apex 300",
+      "department": "Off-Grid Living",
+      "category": "Portable Power Stations",
+      "manufacturer_listed_retail_price_usd": 1499,
+      "public_specs": "3,840 W output; 2,764.8 Wh LiFePO4; 120 V / 240 V capability",
+      "source_url": "https://www.bluettipower.com/collections/power-stations",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "ANKER-SOLIX-S5000",
+      "manufacturer": "Anker SOLIX",
+      "model": "S5000 Portable Power Station",
+      "department": "Off-Grid Living",
+      "category": "Home Backup Power",
+      "manufacturer_listed_retail_price_usd": 2599.99,
+      "public_specs": "4,500 W rated output; 5 kWh capacity; 120 V / 240 V output",
+      "source_url": "https://www.ankersolix.com/",
+      "source_type": "manufacturer_product_page",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "dealer_or_distribution_authorization_not_verified",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "certifications_and_installation_requirements_need_exact_model_review",
+        "model_specific_manual_and_warranty_review_pending"
+      ]
+    },
+    {
+      "candidate_id": "SMLRO-REPLACEMENT-CONTROLLER",
+      "manufacturer": "SMLRO",
+      "model": "Electric Scooter Replacement Controller (exact model and variant to be confirmed)",
+      "department": "E-Mobility",
+      "category": "Electric Scooter Controllers",
+      "manufacturer_listed_retail_price_usd": null,
+      "public_specs": "Manufacturer lists replacement controllers; compatibility is model- and wiring-specific.",
+      "source_url": "https://smlrobicycle.com/collections/scooter-accessories",
+      "source_type": "manufacturer_product_collection",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "exact_sku_and_variant_not_confirmed",
+        "compatibility_matrix_missing",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "electrical_safety_and_installation_documentation_review_pending",
+        "dealer_authorization_not_verified"
+      ]
+    },
+    {
+      "candidate_id": "SMLRO-REPLACEMENT-DISPLAY",
+      "manufacturer": "SMLRO",
+      "model": "Electric Scooter Replacement Display (exact model and variant to be confirmed)",
+      "department": "E-Mobility",
+      "category": "Electric Scooter Displays",
+      "manufacturer_listed_retail_price_usd": null,
+      "public_specs": "Manufacturer lists replacement displays; compatibility is model- and wiring-specific.",
+      "source_url": "https://smlrobicycle.com/collections/scooter-accessories",
+      "source_type": "manufacturer_product_collection",
+      "sourcing_status": "candidate_only",
+      "blockers": [
+        "exact_sku_and_variant_not_confirmed",
+        "compatibility_matrix_missing",
+        "wholesale_cost_and_margin_unknown",
+        "stock_and_fulfillment_not_verified",
+        "electrical_safety_and_installation_documentation_review_pending",
+        "dealer_authorization_not_verified"
+      ]
+    }
+  ]
+}
