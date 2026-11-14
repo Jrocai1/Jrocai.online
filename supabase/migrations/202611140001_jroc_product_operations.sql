@@ -272,3 +272,25 @@ values
 ('JDG-STR-001','micro-series-platform','Micro-Series Platform','digital','J-ROC AI Streaming','Streaming Software','original_design','Vertical micro-series platform with creator publishing, secure playback and monetization workflows.','development','incomplete','review_required','not_reviewed',false),
 ('JDG-DOC-001','documentation-builder','Product Documentation Builder','digital','J-ROC AI Factory','Documentation Software','original_design','Reusable manual, setup, maintenance, troubleshooting and release-document generation tools.','draft','incomplete','review_required','not_reviewed',false)
 on conflict (product_code) do nothing;
+
+-- JROC-AI Brand apparel concepts. These are draft/research records, not active inventory.
+insert into public.jroc_products
+(product_code,slug,name,brand_name,product_type,division,category,sourcing_model,description,lifecycle_status,documentation_status,compliance_status,quality_status,is_public)
+values
+('JPH-APP-001','jroc-ai-everyday-tshirt','JROC-AI Brand Everyday T-Shirt','JROC-AI Brand','physical','JROC-AI Apparel','T-Shirts','private_label','Apparel concept only. Fit, fabric, fiber percentages, weight, size range, color, graphics, logo placement, label layout and price are not yet selected.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-002','jroc-ai-premium-tshirt','JROC-AI Brand Premium T-Shirt','JROC-AI Brand','physical','JROC-AI Apparel','T-Shirts','private_label','Apparel concept only. Premium construction and material targets must be defined and sampled; no fabric or fit is approved.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-003','jroc-ai-pullover-hoodie','JROC-AI Brand Pullover Hoodie','JROC-AI Brand','physical','JROC-AI Apparel','Hoodies','private_label','Apparel concept only. Fabric, weight, construction, fit, size range, color and approved logo treatment remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-004','jroc-ai-zip-hoodie','JROC-AI Brand Zip Hoodie','JROC-AI Brand','physical','JROC-AI Apparel','Hoodies','private_label','Apparel concept only. Zipper hardware, fabric, construction, fit, size range, color and artwork remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-005','jroc-ai-crewneck-sweatshirt','JROC-AI Brand Crewneck Sweatshirt','JROC-AI Brand','physical','JROC-AI Apparel','Sweatshirts','private_label','Apparel concept only. Fabric, weight, construction, fit, size range, color and logo treatment remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-006','jroc-ai-jogger-pants','JROC-AI Brand Jogger Pants','JROC-AI Brand','physical','JROC-AI Apparel','Bottoms','private_label','Apparel concept only. Fit, rise, inseam, waist, fabric, pocket construction, size range and color remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-007','jroc-ai-casual-shorts','JROC-AI Brand Casual Shorts','JROC-AI Brand','physical','JROC-AI Apparel','Bottoms','private_label','Apparel concept only. Inseam, fit, fabric, waistband, pockets, size range and color remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-008','jroc-ai-polo-shirt','JROC-AI Brand Polo Shirt','JROC-AI Brand','physical','JROC-AI Apparel','Shirts','private_label','Apparel concept only. Fabric, knit, fit, collar, placket, size range, color and logo treatment remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-009','jroc-ai-adjustable-cap','JROC-AI Brand Adjustable Cap','JROC-AI Brand','physical','JROC-AI Apparel','Headwear','private_label','Apparel concept only. Silhouette, material, panel construction, closure, size and logo placement remain undecided.','research','incomplete','review_required','not_reviewed',false),
+('JPH-APP-010','jroc-ai-knit-beanie','JROC-AI Brand Knit Beanie','JROC-AI Brand','physical','JROC-AI Apparel','Headwear','private_label','Apparel concept only. Yarn composition, knit, fit, fold, color, size and logo treatment remain undecided.','research','incomplete','review_required','not_reviewed',false)
+on conflict (product_code) do update set
+  name = excluded.name,
+  brand_name = excluded.brand_name,
+  division = excluded.division,
+  category = excluded.category,
+  updated_at = now();
+
