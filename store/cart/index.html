@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff"><title>Your Cart | J-ROC AI Store</title>
+<style>
+:root{color-scheme:light;--blue:#00B3FF;--deep:#0071FF;--ink:#0B0F14;--muted:#5b6572;--line:#e3e8ef;--soft:#f5f8fb}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:16px/1.55 Roboto,Arial,sans-serif}.wrap{width:min(1000px,calc(100% - 32px));margin:auto}header{border-bottom:1px solid var(--line);padding:18px 0}.brand{font-weight:900;font-size:20px}.brand b{color:var(--blue)}a{color:var(--deep);text-decoration:none}.layout{display:grid;grid-template-columns:1fr 300px;gap:22px;padding:38px 0}.panel{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff}.item{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.muted{color:var(--muted);font-size:13px}.price{font-weight:900}.controls{display:flex;align-items:center;gap:8px}.controls button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 10px;cursor:pointer}.remove{color:#a33;border:0!important}.summaryline{display:flex;justify-content:space-between;gap:10px;padding:7px 0}.total{font-size:20px;font-weight:900;border-top:1px solid var(--line);margin-top:8px;padding-top:12px}.checkout{width:100%;padding:12px;border:0;border-radius:8px;background:#9aa6b2;color:white;font-weight:800;margin-top:14px}.notice{padding:13px;border-radius:9px;background:var(--soft);color:var(--muted);font-size:13px;margin-top:12px}.empty{text-align:center;padding:40px 18px;border:1px dashed #bdc9d5;border-radius:12px;background:var(--soft)}@media(max-width:700px){.layout{grid-template-columns:1fr}.item{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/store/">J-ROC <b>AI</b> STORE</a><span style="float:right"><a href="/store/">Continue shopping</a></span></div></header>
+<main class="wrap"><h1>Your shopping cart</h1><p class="muted">Your saved cart is connected to your signed-in J-ROC AI account.</p>
+<div class="layout"><section><div id="items" class="panel"><p class="muted">Loading your cart…</p></div></section><aside><div class="panel"><h2>Order summary</h2><div class="summaryline"><span>Items</span><strong id="itemCount">0</strong></div><div class="summaryline"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div><div class="summaryline"><span>Shipping</span><span>Calculated at checkout</span></div><div class="summaryline total"><span>Total</span><span id="total">$0.00</span></div><button class="checkout" disabled>Checkout not enabled</button><div class="notice">Checkout, payment processing, shipping quotes, and tax calculation are not active yet. No payment will be taken from this page.</div></div></aside></div>
+</main>
+<script type="module">
+const SUPABASE_URL="https://dfgiqvjepytgvjyxszqe.supabase.co";
+const SUPABASE_KEY="sb_publishable_1ezfBzmlIk8BqLmWZE6RdA_iU_fGC_g";
+const {createClient}=await import("https://esm.sh/@supabase/supabase-js@2");
+const sb=createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+const $=s=>document.querySelector(s);let cartId=null,rows=[];
+function money(c){return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format((c||0)/100)}
+function empty(message){const box=document.createElement("div");box.className="empty";const p=document.createElement("p");p.textContent=message;const link=document.createElement("a");link.href="/store/";link.textContent="Browse the store";box.append(p,link);$("#items").replaceChildren(box)}
+function draw(){
+ const root=$("#items");root.replaceChildren();
+ if(!rows.length){empty("Your cart is empty.");}
+ let total=0,count=0;
+ rows.forEach(row=>{
+  const v=row.variant,p=v.product,amount=(v.price_cents??p.price_cents??0)*row.quantity;total+=amount;count+=row.quantity;
+  const article=document.createElement("article");article.className="item";
+  const info=document.createElement("div"),name=document.createElement("strong"),detail=document.createElement("div"),unit=document.createElement("div");
+  name.textContent=p.name||"J-ROC AI product";detail.className="muted";detail.textContent=[v.variant_name,v.sku].filter(Boolean).join(" · ");unit.className="muted";unit.textContent=money(v.price_cents??p.price_cents)+" each";
+  info.append(name,detail,unit);
+  const actions=document.createElement("div"),controls=document.createElement("div"),minus=document.createElement("button"),qty=document.createElement("span"),plus=document.createElement("button"),remove=document.createElement("button"),line=document.createElement("div");
+  actions.className="controls";controls.className="controls";minus.textContent="−";qty.textContent=String(row.quantity);plus.textContent="+";remove.textContent="Remove";remove.className="remove";line.className="price";line.textContent=money(amount);
+  minus.disabled=row.quantity<=1;minus.onclick=()=>change(row,-1);plus.disabled=row.quantity>=99;plus.onclick=()=>change(row,1);remove.onclick=()=>removeItem(row);
+  controls.append(minus,qty,plus);actions.append(controls,remove,line);article.append(info,actions);root.append(article);
+ });
+ $("#itemCount").textContent=String(count);$("#subtotal").textContent=money(total);$("#total").textContent=money(total);
+}
+async function change(row,delta){const q=Math.max(1,Math.min(99,row.quantity+delta));const r=await sb.from("store_cart_items").update({quantity:q,updated_at:new Date().toISOString()}).eq("id",row.id);if(r.error){empty("Your cart could not be updated. Please refresh and try again.");return}row.quantity=q;draw()}
+async function removeItem(row){const r=await sb.from("store_cart_items").delete().eq("id",row.id);if(r.error){empty("The item could not be removed. Please refresh and try again.");return}rows=rows.filter(x=>x.id!==row.id);draw()}
+async function load(){
+ const {data:{session}}=await sb.auth.getSession();
+ if(!session){location.href="/login/?returnTo=%2Fstore%2Fcart%2F";return}
+ let result=await sb.from("store_carts").select("id").eq("user_id",session.user.id).eq("status","active").limit(1).maybeSingle();
+ if(result.error){empty("Cart database is not ready. The store database migration has not been applied.");return}
+ if(!result.data){empty("Your cart is empty.");return}
+ cartId=result.data.id;
+ result=await sb.from("store_cart_items").select("id,variant_id,quantity").eq("cart_id",cartId);
+ if(result.error){empty("Cart items are unavailable. Please try again later.");return}
+ const items=result.data||[];
+ if(!items.length){rows=[];draw();return}
+ const ids=items.map(x=>x.variant_id);
+ const variants=await sb.from("store_product_variants").select("id,sku,variant_name,price_cents,product_id,store_products(name,slug,price_cents)").in("id",ids);
+ if(variants.error){empty("Product details are not available yet.");return}
+ rows=items.map(item=>{const v=variants.data.find(x=>x.id===item.variant_id);return v?{...item,variant:{...v,product:v.store_products||{}}}:null}).filter(Boolean);
+ draw();
+}
+load();
+</script>
+</body></html>
