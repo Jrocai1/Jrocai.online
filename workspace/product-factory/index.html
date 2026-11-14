@@ -17,6 +17,7 @@
 <div><div class="label">Product Operations</div><nav class="nav">
 <button class="active" data-tab="overview"><i>⌂</i> Command Overview</button>
 <button data-tab="physical"><i>▣</i> Physical Products</button>
+<button data-tab="apparel"><i>◆</i> JROC-AI Apparel</button>
 <button data-tab="digital"><i>▤</i> Digital Products</button>
 <button data-tab="pipeline"><i>⇢</i> Build Pipeline</button>
 <button data-tab="releases"><i>✓</i> Release Readiness</button>
@@ -100,7 +101,39 @@ const seed = [
 ["JDG-MED-001","Creator Production Toolkit","digital","J-ROC AI Media","Creative Software","original_design","Research","Creator workflows, production templates and owned creative assets."],
 ["JDG-STR-001","Micro-Series Platform","digital","J-ROC AI Streaming","Streaming Software","original_design","Development","Vertical micro-series platform with creator publishing, secure playback and monetization workflows."],
 ["JDG-DOC-001","Product Documentation Builder","digital","J-ROC AI Factory","Documentation Software","original_design","Research","Reusable product manual, setup, maintenance, troubleshooting and release-document generation tools."]
-].map(x=>({code:x[0],name:x[1],type:x[2],division:x[3],category:x[4],model:x[5],status:x[6],description:x[7],origin:"J-ROC AI initial portfolio"}));
+,
+["JPH-APP-001","JROC-AI Brand Everyday T-Shirt","physical","JROC-AI Apparel","T-Shirts","private_label","Research","Apparel concept only. Fit, fabric, fiber content, size range, color, graphics and logo placement are not selected."],
+["JPH-APP-002","JROC-AI Brand Premium T-Shirt","physical","JROC-AI Apparel","T-Shirts","private_label","Research","Apparel concept only. Material and construction targets need to be defined and sampled."],
+["JPH-APP-003","JROC-AI Brand Pullover Hoodie","physical","JROC-AI Apparel","Hoodies","private_label","Research","Apparel concept only. Fabric, weight, construction, fit, sizes, colors and logo treatment remain undecided."],
+["JPH-APP-004","JROC-AI Brand Zip Hoodie","physical","JROC-AI Apparel","Hoodies","private_label","Research","Apparel concept only. Zipper, fabric, construction, fit, sizes, colors and artwork remain undecided."],
+["JPH-APP-005","JROC-AI Brand Crewneck Sweatshirt","physical","JROC-AI Apparel","Sweatshirts","private_label","Research","Apparel concept only. Fabric, weight, construction, fit and logo treatment remain undecided."],
+["JPH-APP-006","JROC-AI Brand Jogger Pants","physical","JROC-AI Apparel","Bottoms","private_label","Research","Apparel concept only. Fit, rise, inseam, fabric, pockets, size range and color remain undecided."],
+["JPH-APP-007","JROC-AI Brand Casual Shorts","physical","JROC-AI Apparel","Bottoms","private_label","Research","Apparel concept only. Inseam, fit, fabric, waistband, pockets, size range and color remain undecided."],
+["JPH-APP-008","JROC-AI Brand Polo Shirt","physical","JROC-AI Apparel","Shirts","private_label","Research","Apparel concept only. Fabric, fit, collar, placket, size range, colors and logo treatment remain undecided."],
+["JPH-APP-009","JROC-AI Brand Adjustable Cap","physical","JROC-AI Apparel","Headwear","private_label","Research","Apparel concept only. Shape, material, panel construction, closure and logo placement remain undecided."],
+["JPH-APP-010","JROC-AI Brand Knit Beanie","physical","JROC-AI Apparel","Headwear","private_label","Research","Apparel concept only. Yarn, knit, fit, fold, colors, size and logo treatment remain undecided."]].map(x=>({code:x[0],name:x[1],type:x[2],division:x[3],category:x[4],model:x[5],status:x[6],description:x[7],origin:"J-ROC AI initial portfolio"}));
+let custom = [];try{custom=JSON.parse(localStorage.getItem("jroc_product_concepts_v1")||"[]")}catch{}
+let current="overview";
+const $=id=>document.getElementById(id);
+function all(){return [...seed,...custom]}
+function save(){localStorage.setItem("jroc_product_concepts_v1",JSON.stringify(custom))}
+function switchTab(tab){current=tab;document.querySelectorAll(".nav button[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));const catalogTab=["physical","digital","apparel"].includes(tab);["overview","catalog","pipeline","releases"].forEach(id=>$(id).classList.toggle("hidden",id!==(catalogTab?"catalog":tab)));if(catalogTab){$("catalogTitle").textContent=tab==="apparel"?"JROC-AI Brand Apparel":tab==="physical"?"Physical Products":"Digital Products";$("catalogEyebrow").textContent=tab==="apparel"?"JROC-AI Brand clothing line":tab==="physical"?"Manufacturing portfolio":"Software and digital portfolio";$("catalogDescription").textContent=tab==="apparel"?"JROC-AI Brand garment concepts. Designs, fits, fabrics, colorways, sizes, logo placements and prices remain unselected until approved.":tab==="physical"?"J-ROC AI-branded physical product concepts and manufacturing candidates.":"J-ROC AI-owned software, subscriptions, tools and downloadable products.";renderCatalog()}if(tab==="pipeline")renderPipeline()}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+function card(p){const type=p.type==="physical"?"PHYSICAL":"DIGITAL";return `<article class="card"><div class="cardtop"><span class="symbol">${p.type==="physical"?"P":"D"}</span><span class="tag warn">${p.status}</span></div><div><h3>${escapeHtml(p.name)}</h3><div class="meta">${escapeHtml(p.code)} · ${type}</div></div><p>${escapeHtml(p.description)}</p><div class="cardfoot"><span class="meta">${escapeHtml(p.division)}</span><button class="linkbtn" data-detail="${escapeHtml(p.code)}">View record</button></div></article>`}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderCatalog(){const q=$("search").value.toLowerCase(),st=$("statusFilter").value,div=$("divisionFilter").value;const type=current==="physical"||current==="digital"?current:"";const rows=all().filter(p=>(!type||p.type===type)&&(current!=="apparel"||p.division==="JROC-AI Apparel")&&(!q||[p.name,p.code,p.division,p.category,p.description].join(" ").toLowerCase().includes(q))&&(!st||p.status===st)&&(!div||p.division===div));$("productGrid").innerHTML=rows.length?rows.map(card).join(""):'<div class="empty">No concepts match these filters.</div>';document.querySelectorAll("[data-detail]").forEach(b=>b.onclick=()=>detail(b.dataset.detail))}
+function updateStats(){const a=all();$("physicalCount").textContent=a.filter(p=>p.type==="physical").length;$("digitalCount").textContent=a.filter(p=>p.type==="digital").length;$("reviewCount").textContent=a.filter(p=>p.status==="Quality Review").length;$("approvedCount").textContent=a.filter(p=>p.status==="Approved"||p.status==="Published").length}
+function renderPipeline(){const a=all();const groups=["Research","Development","Sample Review","Quality Review","Approved","Published"];$("pipelineList").innerHTML=groups.map((g,i)=>{const rows=a.filter(p=>p.status===g);return `<div class="step"><span class="num">${i+1}</span><span><b>${g} · ${rows.length}</b><br>${rows.length?rows.map(p=>escapeHtml(p.name)).join(" · "):"No product records in this stage."}</span></div>`}).join("")}
+function detail(code){const p=all().find(x=>x.code===code);if(!p)return;alert(p.name+"\n"+p.code+"\n"+p.division+"\nStatus: "+p.status+"\n\n"+p.description+"\n\nRelease gates are not yet approved.")}
+function openModal(){$("modal").classList.remove("hidden")}function closeModal(){$("modal").classList.add("hidden")}
+$("newProduct").onclick=openModal;$("newProduct2").onclick=openModal;$("closeModal").onclick=closeModal;$("cancelModal").onclick=closeModal;$("modal").addEventListener("click",e=>{if(e.target===$("modal"))closeModal()});
+$("productForm").addEventListener("submit",e=>{e.preventDefault();const d=new FormData(e.target),name=d.get("name").trim(),type=d.get("type"),code=(type==="physical"?"JPH":"JDG")+"-NEW-"+Date.now().toString().slice(-6);custom.push({code,name,type,division:d.get("division").trim(),category:d.get("category").trim(),model:d.get("model"),status:d.get("status"),description:d.get("description").trim(),origin:"Chairman-created local draft"});save();e.target.reset();closeModal();updateStats();if(current==="physical"||current==="digital")renderCatalog();alert("Draft concept saved in this browser. It has not been sent to the live store or database.")});
+["search","statusFilter","divisionFilter"].forEach(id=>$(id).addEventListener("input",renderCatalog));
+$("exportCsv").onclick=()=>{const rows=all(),cols=["code","name","type","division","category","model","status","description"];const csv=[cols.join(","),...rows.map(p=>cols.map(k=>'"'+String(p[k]||"").replace(/"/g,'""')+'"').join(","))].join("\n");const a=document.createElement("a"),url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.href=url;a.download="jroc-ai-product-register.csv";a.click();URL.revokeObjectURL(url)};
+function init(){const divs=[...new Set(all().map(p=>p.division))].sort();$("divisionFilter").innerHTML='<option value="">All divisions</option>'+divs.map(d=>'<option>'+escapeHtml(d)+'</option>').join("");updateStats();renderPipeline();renderCatalog()}
+init();
+</script>
+</body></html>].map(x=>({code:x[0],name:x[1],type:x[2],division:x[3],category:x[4],model:x[5],status:x[6],description:x[7],origin:"J-ROC AI initial portfolio"}));
 let custom = [];try{custom=JSON.parse(localStorage.getItem("jroc_product_concepts_v1")||"[]")}catch{}
 let current="overview";
 const $=id=>document.getElementById(id);
