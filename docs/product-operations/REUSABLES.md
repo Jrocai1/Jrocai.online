@@ -20,6 +20,8 @@ Reusable operational templates for the physical and digital product divisions.
 10. Inventory receiving and lot inspection.
 11. Digital software bill of materials and license review.
 12. Digital security and privacy review.
+15. JROC-AI Brand garment technical pack: `JROC_AI_APPAREL_TECH_PACK_TEMPLATE.md`.
+16. Apparel line operating specification: `JROC_AI_APPAREL_LINE.md`.
 13. Release notes and version manifest.
 14. Warranty, returns and recall record.
 15. Customer complaint and corrective-action record.
