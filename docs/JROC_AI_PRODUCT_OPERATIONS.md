@@ -124,6 +124,31 @@ Pricing is a decision, not a guessed markup. Calculate contribution margin using
 - Smart environmental sensor kit.
 - Rugged cable and power-management kit.
 
+### JROC-AI Brand apparel line
+- JROC-AI Brand Everyday T-Shirt.
+- JROC-AI Brand Premium T-Shirt.
+- JROC-AI Brand Pullover Hoodie.
+- JROC-AI Brand Zip Hoodie.
+- JROC-AI Brand Crewneck Sweatshirt.
+- JROC-AI Brand Jogger Pants.
+- JROC-AI Brand Casual Shorts.
+- JROC-AI Brand Polo Shirt.
+- JROC-AI Brand Adjustable Cap.
+- JROC-AI Brand Knit Beanie.
+
+These are product concepts only. The Chairman has not selected garment silhouettes, fit, fabric, weight, sizes, colorways, graphics, logo placements, trims, packaging or retail pricing. Do not invent these decisions or publish mockups as approved designs. Use the official supplied J-ROC AI logo only after its garment placement and production method are approved.
+
+Apparel production can use approved private-label blanks with J-ROC AI labels and decoration, or custom cut-and-sew manufacturing to a J-ROC AI-approved technical pack. Keep every garment style, fabric, color and size combination traceable by its own variant SKU.
+
+### Apparel technical pack and quality controls
+Each garment requires an approved technical pack covering style code, intended wearer and age grade, fit and silhouette, point-of-measure diagram, size chart and grading, fabric construction and verified fiber percentages, fabric weight, color standard, seam and stitch construction, trims, labels, logo artwork and approved placement, decoration process, packaging, tolerances, and revision history.
+
+Approve lab dips or color swatches, fabric hand-feel and composition evidence, fit samples, size-set samples where appropriate, pre-production samples and a retained reference sample. Record inspection results for measurements, seam quality, needle or sharp-object hazards, defects, color consistency, print or embroidery durability, dimensional change after laundering, colorfastness and packaging accuracy. No garment is approved from a digital mockup alone.
+
+Apparel compliance review must assess the exact garment and intended wearer. Most covered textile and wool products require fiber-content, country-of-origin and responsible-business identification disclosures; care instructions are also required for covered products. Review the Federal Trade Commission Textile Fiber Rule and Care Labeling Rule before approving labels. General wearing-apparel textiles are subject to the applicable flammability requirements under 16 C.F.R. Part 1610, subject to its exact exemptions and test rules. Children's apparel and sleepwear require a separate product-specific assessment before sourcing or sale. Do not guess at compliance based on a supplier's generic statement.
+
+The company identity required on a label must be the actual responsible business name or a valid Federal Trade Commission registered identification number where permitted. A clothing trademark by itself may not satisfy the responsible-business identification requirement.
+
 ### Digital pilot candidates
 - J-ROC AI Universal Pro Repair Edition.
 - J-ROC AI Repair Compatibility Library.
